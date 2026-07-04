@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { VoicesExplorer } from "@/components/voices-explorer";
 import { OpennessSpectrum } from "@/components/openness-spectrum";
+import { SiteFooter } from "@/components/site-footer";
 import { actionPlan, champions, distinction } from "@/lib/sources";
 
 export const metadata: Metadata = {
@@ -138,7 +139,7 @@ export default function Transparency() {
         </section>
       </main>
 
-      <Footer />
+      <SiteFooter />
     </>
   );
 }
@@ -161,15 +162,3 @@ function Header() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-10 text-sm text-muted sm:flex-row sm:justify-between">
-        <Link href="/" className="font-display text-lg text-ink">
-          Republic Assay
-        </Link>
-        <span>A public initiative in the service of the American Republic.</span>
-      </div>
-    </footer>
-  );
-}

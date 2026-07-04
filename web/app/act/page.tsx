@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: "Take action — Republic Assay",
   description:
-    "Move the resource only you can move. Capital, compute, standing, time, or audience — pick your lane and start in five minutes.",
+    "Open models founded on American values will not build themselves. Five levers decide it — move the one that is yours.",
 };
 
 type Action = {
@@ -20,7 +21,6 @@ type Lane = {
   directive: string;
   actions: Action[];
   bar: string;
-  skip: string;
 };
 
 const lanes: Lane[] = [
@@ -28,11 +28,11 @@ const lanes: Lane[] = [
     id: "cap",
     code: "CAP",
     title: "Capital",
-    directive: "Fund who ships or sues.",
+    directive: "Fund what ships, and what defends it.",
     actions: [
       {
         lead: "Fund the producers.",
-        body: "Compute-restricted gifts go furthest; that is the bottleneck, not headcount.",
+        body: "Compute-restricted gifts go furthest — compute is the bottleneck, not headcount.",
         links: [
           { label: "Ai2", href: "https://allenai.org/" },
           { label: "EleutherAI", href: "https://www.eleuther.ai/" },
@@ -41,104 +41,80 @@ const lanes: Lane[] = [
       },
       {
         lead: "Fund the defense.",
-        body: "The cases deciding whether a company can be punished for setting use limits cover everyone building open.",
+        body: "The cases deciding whether open builders can be punished protect every one of them.",
         links: [{ label: "EFF", href: "https://supporters.eff.org/donate" }],
       },
-      {
-        lead: "Back founders on open weights.",
-        body: "Making the open stack pay is what makes it self-sustaining.",
-      },
     ],
-    bar: "becomes training runs, data, or briefs — not a report.",
-    skip: "sponsoring another “future of AI” panel",
+    bar: "Your capital becomes training runs, data, or briefs — not another report.",
   },
   {
     id: "cmp",
     code: "CMP",
     title: "Compute",
-    directive: "Point silicon at open training.",
+    directive: "Point American silicon at open training.",
     actions: [
       {
-        lead: "Sponsor training compute.",
-        body: "Idle capacity and credits convert straight into public models.",
+        lead: "Convert capacity into public models.",
+        body: "Idle compute and credits become open models. If you sit near a cluster or an allocation, route open training onto it.",
         links: [
           { label: "ATOM Project", href: "https://atomproject.ai/" },
-          { label: "EleutherAI", href: "https://www.eleuther.ai/" },
+          { label: "NAIRR Pilot", href: "https://nairrpilot.org/" },
         ],
       },
-      {
-        lead: "Route institutional access.",
-        body: "Near a cluster or allocation? Get open training onto it, and back shared public compute.",
-        links: [{ label: "NAIRR Pilot", href: "https://nairrpilot.org/" }],
-      },
     ],
-    bar: "a public model exists that would not without your compute.",
-    skip: "pledging “in principle” for a future run",
+    bar: "A public model exists that would not without your compute.",
   },
   {
     id: "pol",
     code: "POL",
     title: "Position",
-    directive: "Use the standing you have.",
+    directive: "Spend the standing you already hold.",
     actions: [
       {
         lead: "File on open comment dockets.",
-        body: "These windows moved the open-weight report. A credible filing outweighs ten thousand form letters — and almost no one with standing sends one.",
+        body: "One credible filing from a party with standing outweighs ten thousand form letters — and almost no one sends it.",
         links: [
           { label: "Open dockets", href: "https://www.regulations.gov/" },
           { label: "NTIA", href: "https://www.ntia.gov/" },
         ],
       },
       {
-        lead: "Back named bills, not vibes.",
-        body: "Specific legislation protecting open development and the right to set use limits.",
-      },
-      {
-        lead: "Set your institution's procurement rule.",
-        body: "Require auditable or open models where you have a vote; most forget they hold this.",
+        lead: "Set the procurement rule.",
+        body: "Where you hold a vote, require auditable or open models. Most forget they hold this power.",
       },
     ],
-    bar: "your name on a filing, a bill, or a policy that changed.",
-    skip: "signing a letter that already has momentum",
+    bar: "Your name on a filing, or a procurement rule that changed.",
   },
   {
     id: "tme",
     code: "TME",
     title: "Time",
-    directive: "Do the vetting that scale skips.",
+    directive: "Do the work that scale refuses.",
     actions: [
       {
-        lead: "Vet data and provenance.",
-        body: "License auditing, dedup, quality filtering — where trust actually lives, and wide open.",
-        links: [{ label: "Public datasets", href: "https://huggingface.co/datasets" }],
-      },
-      {
-        lead: "Cover what the frontier ignores.",
-        body: "Evals in skipped languages and domains; non-English is a gap any capable contributor can close.",
-        links: [{ label: "Join EleutherAI", href: "https://www.eleuther.ai/" }],
+        lead: "Vet the data, cover the gaps.",
+        body: "License auditing, dedup, and quality filtering — where trust lives — plus evals for the languages and domains the frontier ignores.",
+        links: [
+          { label: "Public datasets", href: "https://huggingface.co/datasets" },
+          { label: "EleutherAI", href: "https://www.eleuther.ai/" },
+        ],
       },
     ],
-    bar: "lands in a public dataset with your name on it.",
-    skip: "reading every AI newsletter to “stay informed”",
+    bar: "Your work lands in a public dataset or eval, on the record.",
   },
   {
     id: "rch",
     code: "RCH",
     title: "Audience",
-    directive: "Boost artifacts, not takes.",
+    directive: "Spend your reach on artifacts, not opinions.",
     actions: [
       {
-        lead: "Point people at the concrete.",
-        body: "A released model, an open eval, a live case, a comment window — a next click that lands on something real.",
-        links: [{ label: "Send them to ATOM", href: "https://atomproject.ai/" }],
-      },
-      {
-        lead: "Move one reader to one act.",
-        body: "Get a specific person to fund, file, or free up compute this week.",
+        lead: "Move one person to one act.",
+        body: "Point a specific reader at one concrete thing — a released model, an open eval, a live docket — and get them to move this week.",
+        links: [{ label: "ATOM Project", href: "https://atomproject.ai/" }],
       },
     ],
-    bar: "someone acted because of what you published.",
-    skip: "the manifesto, the thread, the take",
+    bar: "Someone acted because of what you published.",
   },
 ];
 
@@ -153,7 +129,7 @@ export default function Act() {
 
       <main>
         {/* Hero. */}
-        <section className="mx-auto max-w-5xl px-6 pt-28 pb-16">
+        <section className="mx-auto max-w-5xl px-6 pt-28 pb-20">
           <p className="eyebrow mb-8 reveal">Take action</p>
           <h1 className="font-display text-6xl sm:text-8xl md:text-9xl max-w-4xl reveal">
             Move the resource
@@ -161,29 +137,11 @@ export default function Act() {
             <span className="text-gold-deep">only you can move.</span>
           </h1>
           <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted reveal">
-            Everyone repeats that open models keep a free country free. Almost no
-            one moves the money, compute, or standing that would settle it. Pick
-            your lane — each link starts you in five minutes.
+            The case is made. Open models founded on American values will not
+            build themselves — and the Republic cannot wait on those who only
+            repeat the argument. Five levers decide it. Move the one that is
+            yours.
           </p>
-        </section>
-
-        {/* Pick your lane. */}
-        <section className="mx-auto max-w-5xl px-6 pb-20">
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {lanes.map((lane) => (
-              <a
-                key={lane.id}
-                href={`#${lane.id}`}
-                className="group rounded-xl border border-line bg-white/40 px-5 py-5 transition-colors hover:border-ink"
-              >
-                <div className="font-mono text-xs text-gold-deep">{lane.code}</div>
-                <div className="mt-1 font-display text-2xl">{lane.title}</div>
-                <div className="mt-2 text-sm leading-snug text-muted">
-                  {lane.directive}
-                </div>
-              </a>
-            ))}
-          </div>
         </section>
 
         {/* Lanes. */}
@@ -219,16 +177,10 @@ export default function Act() {
                   ))}
                 </div>
 
-                <div className="mt-10 space-y-1.5 border-t border-line pt-6 font-mono text-sm">
-                  <p>
-                    <span className="text-gold-deep">Bar</span>{" "}
-                    <span className="text-muted">— {lane.bar}</span>
-                  </p>
-                  <p>
-                    <span className="text-muted">Skip</span>{" "}
-                    <span className="text-muted line-through">{lane.skip}</span>
-                  </p>
-                </div>
+                <p className="mt-10 border-t border-line pt-6 font-mono text-sm">
+                  <span className="text-gold-deep">Bar</span>{" "}
+                  <span className="text-muted">— {lane.bar}</span>
+                </p>
               </div>
             </section>
           ))}
@@ -238,17 +190,16 @@ export default function Act() {
         <section className="bg-ink text-paper">
           <div className="mx-auto max-w-5xl px-6 py-40">
             <p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-gold reveal">
-              Test the claim instead of repeating it
+              Test the claim — don&apos;t repeat it
             </p>
             <h2 className="font-display text-4xl sm:text-6xl max-w-3xl reveal">
-              Get the model built. Then measure it against what the closed camp
-              predicted.
+              Build the model. Measure it against what the closed camp promised.
             </h2>
             <p className="mt-10 max-w-2xl text-lg leading-relaxed text-paper/70 reveal">
-              The gap between the two is the whole prize — the evidence that ends
-              the argument. Fall short, and you learned it cheap. The burden sits
-              on the open side, so one working, auditable model outweighs every
-              essay on this. That measurement is exactly what the{" "}
+              The gap between the two is the evidence that ends the argument, and
+              the burden sits on the open side. One working, auditable model
+              outweighs every essay — this one included. That measurement is what
+              the{" "}
               <Link href="/#observatory" className="text-gold underline underline-offset-4 hover:text-paper">
                 observatory
               </Link>{" "}
@@ -269,12 +220,21 @@ export default function Act() {
         <section className="mx-auto max-w-5xl px-6 py-12">
           <p className="max-w-2xl text-sm leading-relaxed text-muted">
             Links live as of writing; dockets and funding needs shift, so click
-            through. A working document — targets change as the field does.
+            through. A working document —{" "}
+            <a
+              href="https://github.com/abaybektursun/republicassay"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-deep underline underline-offset-4 hover:text-ink"
+            >
+              fork it on GitHub
+            </a>{" "}
+            and swap in your own targets.
           </p>
         </section>
       </main>
 
-      <Footer />
+      <SiteFooter />
     </>
   );
 }
@@ -340,18 +300,5 @@ function Header() {
         </nav>
       </div>
     </header>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-10 text-sm text-muted sm:flex-row sm:justify-between">
-        <Link href="/" className="font-display text-lg text-ink">
-          Republic Assay
-        </Link>
-        <span>A public initiative in the service of the American Republic.</span>
-      </div>
-    </footer>
   );
 }

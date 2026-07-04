@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Button } from "@/components/button";
 import { Section } from "@/components/section";
 import { McpConsole } from "@/components/mcp-console";
-import { models, values, layers, project } from "@/lib/project";
+import { SiteFooter } from "@/components/site-footer";
+import { models, values, layers } from "@/lib/project";
 
 // The home page is a short, concise index of the initiative. Depth lives in
 // the observatory table, the open MCP server, and the /transparency exposition.
@@ -109,6 +110,11 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <div className="mt-12">
+              <Button href="/science" variant="outline">
+                How the science works
+              </Button>
+            </div>
           </Section>
         </div>
 
@@ -152,7 +158,7 @@ export default function Home() {
         </div>
       </main>
 
-      <Footer />
+      <SiteFooter />
     </>
   );
 }
@@ -176,6 +182,9 @@ function Header() {
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
         <span className="font-display text-2xl">Republic Assay</span>
         <nav className="flex gap-5 text-sm text-muted sm:gap-7">
+          <Link href="/science" className="hover:text-ink">
+            The science
+          </Link>
           <Link href="/transparency" className="hover:text-ink">
             Why it matters
           </Link>
@@ -194,13 +203,3 @@ function Header() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-10 text-sm text-muted sm:flex-row sm:justify-between">
-        <span className="font-display text-lg text-ink">{project.name}</span>
-        <span>A public initiative in the service of the American Republic.</span>
-      </div>
-    </footer>
-  );
-}
