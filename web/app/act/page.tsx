@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 export const metadata: Metadata = {
   title: "Take action — Republic Assay",
   description:
-    "Open models founded on American values will not build themselves. Five levers decide it — move the one that is yours.",
+    "Open models founded on American values will not build themselves. Five measures for the American people — advance the one within your means.",
 };
 
 type Action = {
@@ -20,7 +20,7 @@ type Lane = {
   title: string;
   directive: string;
   actions: Action[];
-  bar: string;
+  standard: string;
 };
 
 const lanes: Lane[] = [
@@ -28,11 +28,11 @@ const lanes: Lane[] = [
     id: "cap",
     code: "CAP",
     title: "Capital",
-    directive: "Fund what ships, and what defends it.",
+    directive: "Direct capital to those who build, and those who defend.",
     actions: [
       {
         lead: "Fund the producers.",
-        body: "Compute-restricted gifts go furthest — compute is the bottleneck, not headcount.",
+        body: "Compute-restricted gifts carry furthest; compute, not headcount, is the constraint.",
         links: [
           { label: "Ai2", href: "https://allenai.org/" },
           { label: "EleutherAI", href: "https://www.eleuther.ai/" },
@@ -41,38 +41,38 @@ const lanes: Lane[] = [
       },
       {
         lead: "Fund the defense.",
-        body: "The cases deciding whether open builders can be punished protect every one of them.",
+        body: "The cases determining whether open builders may be penalized protect every one of them.",
         links: [{ label: "EFF", href: "https://supporters.eff.org/donate" }],
       },
     ],
-    bar: "Your capital becomes training runs, data, or briefs — not another report.",
+    standard: "capital that becomes training runs, data, or briefs — not a further report.",
   },
   {
     id: "cmp",
     code: "CMP",
     title: "Compute",
-    directive: "Point American silicon at open training.",
+    directive: "Commit American compute to open training.",
     actions: [
       {
         lead: "Convert capacity into public models.",
-        body: "Idle compute and credits become open models. If you sit near a cluster or an allocation, route open training onto it.",
+        body: "Idle compute and credits become open models. Those situated near a cluster or an allocation are asked to route open training onto it.",
         links: [
           { label: "ATOM Project", href: "https://atomproject.ai/" },
           { label: "NAIRR Pilot", href: "https://nairrpilot.org/" },
         ],
       },
     ],
-    bar: "A public model exists that would not without your compute.",
+    standard: "a public model that would not exist without your compute.",
   },
   {
     id: "pol",
     code: "POL",
     title: "Position",
-    directive: "Spend the standing you already hold.",
+    directive: "Exercise the standing already vested in you.",
     actions: [
       {
-        lead: "File on open comment dockets.",
-        body: "One credible filing from a party with standing outweighs ten thousand form letters — and almost no one sends it.",
+        lead: "File on the open comment dockets.",
+        body: "A single credible filing from a party with standing outweighs ten thousand form letters — and almost none are submitted.",
         links: [
           { label: "Open dockets", href: "https://www.regulations.gov/" },
           { label: "NTIA", href: "https://www.ntia.gov/" },
@@ -80,41 +80,41 @@ const lanes: Lane[] = [
       },
       {
         lead: "Set the procurement rule.",
-        body: "Where you hold a vote, require auditable or open models. Most forget they hold this power.",
+        body: "Where a vote is yours, require auditable or open models. Most forget this authority is theirs to exercise.",
       },
     ],
-    bar: "Your name on a filing, or a procurement rule that changed.",
+    standard: "your name on a filing, or on a procurement rule that changed.",
   },
   {
     id: "tme",
     code: "TME",
     title: "Time",
-    directive: "Do the work that scale refuses.",
+    directive: "Undertake the work that scale declines.",
     actions: [
       {
-        lead: "Vet the data, cover the gaps.",
-        body: "License auditing, dedup, and quality filtering — where trust lives — plus evals for the languages and domains the frontier ignores.",
+        lead: "Vet the data; close the gaps.",
+        body: "License auditing, deduplication, and quality filtering — where trust resides — together with evaluations for the languages and domains the frontier neglects.",
         links: [
           { label: "Public datasets", href: "https://huggingface.co/datasets" },
           { label: "EleutherAI", href: "https://www.eleuther.ai/" },
         ],
       },
     ],
-    bar: "Your work lands in a public dataset or eval, on the record.",
+    standard: "work entered into a public dataset or evaluation, on the record.",
   },
   {
     id: "rch",
     code: "RCH",
     title: "Audience",
-    directive: "Spend your reach on artifacts, not opinions.",
+    directive: "Direct your reach toward the concrete, not the commentary.",
     actions: [
       {
-        lead: "Move one person to one act.",
-        body: "Point a specific reader at one concrete thing — a released model, an open eval, a live docket — and get them to move this week.",
+        lead: "Move one citizen to one act.",
+        body: "Point a specific reader to a single concrete thing — a released model, an open evaluation, a live docket — and secure one action this week.",
         links: [{ label: "ATOM Project", href: "https://atomproject.ai/" }],
       },
     ],
-    bar: "Someone acted because of what you published.",
+    standard: "an action taken by someone on what you published.",
   },
 ];
 
@@ -130,21 +130,21 @@ export default function Act() {
       <main>
         {/* Hero. */}
         <section className="mx-auto max-w-5xl px-6 pt-28 pb-20">
-          <p className="eyebrow mb-8 reveal">Take action</p>
+          <p className="eyebrow mb-8 reveal">A public call to action</p>
           <h1 className="font-display text-6xl sm:text-8xl md:text-9xl max-w-4xl reveal">
-            Move the resource
+            The Republic asks
             <br />
-            <span className="text-gold-deep">only you can move.</span>
+            <span className="text-gold-deep">what only you can move.</span>
           </h1>
           <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted reveal">
-            The case is made. Open models founded on American values will not
-            build themselves — and the Republic cannot wait on those who only
-            repeat the argument. Five levers decide it. Move the one that is
-            yours.
+            The case is settled in the record. Open models founded on American
+            values will not build themselves, and the Republic cannot wait on
+            those who merely restate the argument. Five measures are set out
+            below — each citizen is asked to advance the one within their means.
           </p>
         </section>
 
-        {/* Lanes. */}
+        {/* Measures. */}
         <div className="border-t border-line">
           {lanes.map((lane, i) => (
             <section
@@ -178,28 +178,29 @@ export default function Act() {
                 </div>
 
                 <p className="mt-10 border-t border-line pt-6 font-mono text-sm">
-                  <span className="text-gold-deep">Bar</span>{" "}
-                  <span className="text-muted">— {lane.bar}</span>
+                  <span className="text-gold-deep">Standard</span>{" "}
+                  <span className="text-muted">— {lane.standard}</span>
                 </p>
               </div>
             </section>
           ))}
         </div>
 
-        {/* Closing — test the claim. */}
+        {/* Closing — the burden of proof. */}
         <section className="bg-ink text-paper">
           <div className="mx-auto max-w-5xl px-6 py-40">
             <p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-gold reveal">
-              Test the claim — don&apos;t repeat it
+              On the burden of proof
             </p>
             <h2 className="font-display text-4xl sm:text-6xl max-w-3xl reveal">
-              Build the model. Measure it against what the closed camp promised.
+              Build the model. Then measure it against what the closed camp
+              promised.
             </h2>
             <p className="mt-10 max-w-2xl text-lg leading-relaxed text-paper/70 reveal">
-              The gap between the two is the evidence that ends the argument, and
-              the burden sits on the open side. One working, auditable model
-              outweighs every essay — this one included. That measurement is what
-              the{" "}
+              The distance between the two is the evidence that settles the
+              matter, and the burden rests with the open side. One working,
+              auditable model outweighs every essay — this one included. That
+              measurement is the work the{" "}
               <Link href="/#observatory" className="text-gold underline underline-offset-4 hover:text-paper">
                 observatory
               </Link>{" "}
@@ -216,20 +217,20 @@ export default function Act() {
           </div>
         </section>
 
-        {/* Working-document note. */}
+        {/* Working record. */}
         <section className="mx-auto max-w-5xl px-6 py-12">
           <p className="max-w-2xl text-sm leading-relaxed text-muted">
-            Links live as of writing; dockets and funding needs shift, so click
-            through. A working document —{" "}
+            A working record. Links are live as of issuance; dockets and funding
+            needs shift, so verify each before acting.{" "}
             <a
               href="https://github.com/abaybektursun/republicassay"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold-deep underline underline-offset-4 hover:text-ink"
             >
-              fork it on GitHub
+              Fork it on GitHub
             </a>{" "}
-            and swap in your own targets.
+            and enter your own targets.
           </p>
         </section>
       </main>
