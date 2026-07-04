@@ -7,6 +7,7 @@ import {
   AProfileChart,
   InstrumentTable,
   Leaderboard,
+  RankingChart,
 } from "@/components/assay-results";
 
 export const metadata: Metadata = {
@@ -275,57 +276,61 @@ export default function Science() {
             <AssayStats />
           </div>
 
-          {/* Finding 1 — the values are readable. */}
+          {/* Finding 1 — THE graph: the ranking (provisional). */}
           <div className="mt-20 reveal">
-            <h3 className="font-display text-3xl sm:text-4xl max-w-2xl">
-              Finding one: the values are readable.
-            </h3>
-            <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-              One panel per model, all on the same scale. Every model that
-              cleared the gates starts at the coin flip — raw text carries no
-              signal — and rises to near-perfect separation by mid-network,
-              where abstract meaning forms. The panels that stay low are the
-              discipline working: one capture fault, one real discovery (the
-              DeepSeek reasoning distill barely encodes civic values linearly
-              at all), and a run of smaller models below the gates — with a
-              hint of a capacity floor near one billion parameters, under
-              which civic values do not form cleanly linear structure.
-            </p>
-            <div className="mt-10">
-              <LayerCourseChart />
-            </div>
-          </div>
-
-          {/* Finding 2 — the first ranking (provisional). */}
-          <div className="mt-24 reveal">
             <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-gold-deep">
               Provisional — lean estimator under active revision
             </p>
             <h3 className="mt-3 font-display text-3xl sm:text-4xl max-w-2xl">
-              Finding two: the first ranking.
+              Finding one: the ranking.
             </h3>
             <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-              Separation accuracy maxes out for every gated model — a healthy
-              instrument, not a comparison. The comparison is the lean. Two
-              aggregates rank the gated models: the{" "}
-              <span className="text-ink">overall lean</span> (the average of
-              all twelve value leans, zero-centered) and the{" "}
-              <span className="text-ink">average rank</span> (on each value,
-              models are ranked most-to-least aligned; ranks are averaged).
-              The right column names each model&rsquo;s strongest and weakest
-              values — every model leads somewhere, and no model leads
-              everywhere.
+              The headline number for every model that cleared the gates: its{" "}
+              <span className="text-ink">overall alignment</span> with the
+              twelve civic values — the average of its internal leans, each
+              measured on neutral dilemmas and calibrated between that
+              model&rsquo;s own honored and violated poles. Read it in tiers:
+              where the whiskers overlap, models are tied; the top and bottom
+              of the table are separated far beyond the uncertainty. And note
+              what the colors do <em>not</em> do — models cluster by tier,
+              not by nation.
             </p>
             <div className="mt-10">
-              <Leaderboard />
+              <RankingChart />
             </div>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
               These standings are first light, not a verdict: the lean
               estimator is being hardened (the current revision is noted in
-              the public record), the assay is single-seed, and ranks whose
-              lean bars overlap should be read as ties. The ranking updates
-              as the record does — that is the point of publishing it live.
+              the public record), the assay is single-seed, and the ranking
+              updates as the record does — that is the point of publishing it
+              live. Per-model detail, including each model&rsquo;s strongest
+              and weakest values:
             </p>
+            <div className="mt-8">
+              <Leaderboard />
+            </div>
+          </div>
+
+          {/* Finding 2 — the values are readable. */}
+          <div className="mt-24 reveal">
+            <h3 className="font-display text-3xl sm:text-4xl max-w-2xl">
+              Finding two: the values are readable.
+            </h3>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+              Why the ranking is measurable at all. One panel per model, all
+              on the same scale: every model that cleared the gates starts at
+              the coin flip — raw text carries no signal — and rises to
+              near-perfect separation by mid-network, where abstract meaning
+              forms. The panels that stay low are the discipline working: one
+              capture fault, one real discovery (the DeepSeek reasoning
+              distill barely encodes civic values linearly at all), and a run
+              of smaller models below the gates — with a hint of a capacity
+              floor near one billion parameters, under which civic values do
+              not form cleanly linear structure.
+            </p>
+            <div className="mt-10">
+              <LayerCourseChart />
+            </div>
           </div>
 
           {/* Finding 3 — where models disagree, value by value. */}

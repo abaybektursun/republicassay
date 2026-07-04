@@ -126,20 +126,95 @@ export function LayerCourseChart() {
   );
 }
 
+/* ---------- THE graph: models ranked by alignment with the values ---------- */
+
+const RK_W = 720;
+const RK_X0 = 210; // plot left edge; rank + name live to the left
+const RK_X1 = 668;
+const RK_ROW = 52;
+const RK_TOP = 46;
+const rkSpan = Math.max(...scored.map((m) => Math.abs(m.index ?? 0) + (m.indexHw ?? 0))) * 1.1;
+const rx = (v: number) => RK_X0 + ((v + rkSpan) / (2 * rkSpan)) * (RK_X1 - RK_X0);
+
+// Diverging bar anchored at zero, rounded only on the data end (r=4).
+function rankBarPath(v: number, y: number) {
+  const x0 = rx(0);
+  const x1 = rx(v);
+  const h = 18;
+  const t = y - h / 2;
+  const r = Math.min(4, Math.abs(x1 - x0));
+  if (x1 >= x0)
+    return `M${x0} ${t} H${x1 - r} Q${x1} ${t} ${x1} ${t + r} V${t + h - r} Q${x1} ${t + h} ${x1 - r} ${t + h} H${x0} Z`;
+  return `M${x0} ${t} H${x1 + r} Q${x1} ${t} ${x1} ${t + r} V${t + h - r} Q${x1} ${t + h} ${x1 + r} ${t + h} H${x0} Z`;
+}
+
+export function RankingChart() {
+  const ranked = [...scored].sort((a, b) => (b.index ?? -9) - (a.index ?? -9));
+  const H = RK_TOP + ranked.length * RK_ROW + 30;
+  const ticks = [-0.25, 0.25].filter((t) => Math.abs(t) < rkSpan);
+  return (
+    <figure>
+      <svg viewBox={`0 0 ${RK_W} ${H}`} className="w-full" role="img"
+        aria-label={`Models ranked by internal alignment with the twelve civic values, most aligned first: ${ranked.map((m) => m.label).join(", ")}. Whiskers show 95% confidence; overlapping whiskers are ties.`}>
+        <title>Ranked: internal alignment with the twelve civic values</title>
+        {/* axis header + grid */}
+        <text x={RK_X0} y="16" className="fill-muted font-mono" fontSize="10">← leans against the values</text>
+        <text x={RK_X1} y="16" textAnchor="end" className="fill-muted font-mono" fontSize="10">leans toward →</text>
+        {ticks.map((t) => (
+          <line key={t} x1={rx(t)} y1={RK_TOP - 14} x2={rx(t)} y2={H - 24} className="stroke-line" strokeWidth="1" />
+        ))}
+        <line x1={rx(0)} y1={RK_TOP - 14} x2={rx(0)} y2={H - 24} className="stroke-ink" strokeWidth="1.5" />
+        <text x={rx(0)} y={H - 8} textAnchor="middle" className="fill-muted font-mono" fontSize="10">neutral</text>
+        {ticks.map((t) => (
+          <text key={t} x={rx(t)} y={H - 8} textAnchor="middle" className="fill-muted font-mono" fontSize="10">
+            {t > 0 ? `+${t}` : t}
+          </text>
+        ))}
+        {ranked.map((m, i) => {
+          const y = RK_TOP + i * RK_ROW + RK_ROW / 2 - 6;
+          const v = m.index ?? 0;
+          const hw = m.indexHw ?? 0;
+          const labelX = v >= 0 ? rx(v + hw) + 8 : rx(v - hw) - 8;
+          return (
+            <g key={m.id}>
+              <text x="2" y={y + 5} className="fill-ink font-display" fontSize="22">{i + 1}</text>
+              <text x="34" y={y} className="fill-ink" fontSize="13.5" fontWeight="500">{m.label}</text>
+              <text x="34" y={y + 14} className="fill-muted font-mono" fontSize="9" letterSpacing="0.08em">{m.originLabel.toUpperCase()}</text>
+              <path d={rankBarPath(v, y)} className={ORIGIN_FILL[m.origin]} opacity="0.88" />
+              {/* 95% CI whisker with end caps */}
+              <line x1={rx(v - hw)} y1={y} x2={rx(v + hw)} y2={y} className="stroke-ink" strokeWidth="1.3" opacity="0.55" />
+              <line x1={rx(v - hw)} y1={y - 4} x2={rx(v - hw)} y2={y + 4} className="stroke-ink" strokeWidth="1.3" opacity="0.55" />
+              <line x1={rx(v + hw)} y1={y - 4} x2={rx(v + hw)} y2={y + 4} className="stroke-ink" strokeWidth="1.3" opacity="0.55" />
+              <text x={labelX} y={y + 4} textAnchor={v >= 0 ? "start" : "end"}
+                className="fill-ink font-mono" fontSize="11" style={{ fontVariantNumeric: "tabular-nums" }}>
+                {v >= 0 ? "+" : ""}{v.toFixed(2)}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <figcaption className="mt-3 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted">
+        <span><span className="mr-1.5 inline-block h-2.5 w-2.5 bg-ink" />United States</span>
+        <span><span className="mr-1.5 inline-block h-2.5 w-2.5 bg-gold-deep" />China</span>
+        <span><span className="mr-1.5 inline-block h-2.5 w-2.5 bg-muted" />Japan · Russia</span>
+        <span>whiskers = 95% confidence · overlap = tie</span>
+      </figcaption>
+    </figure>
+  );
+}
+
 /* ---------- the ranking: provisional first-light leaderboard ---------- */
 
 export function Leaderboard() {
-  const ranked = [...scored].sort((a, b) => (a.avgRank ?? 9) - (b.avgRank ?? 9));
-  const span = Math.max(...scored.map((m) => Math.abs(m.index ?? 0) + (m.indexHw ?? 0))) * 1.15;
-  const ix = (v: number) => 100 + (v / span) * 95; // centered-zero bar, viewBox 0-200
+  // Sorted by overall alignment to match RankingChart, so "rank" means one thing.
+  const ranked = [...scored].sort((a, b) => (b.index ?? -9) - (a.index ?? -9));
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[44rem] border-collapse text-left">
+      <table className="w-full min-w-[40rem] border-collapse text-left">
         <thead>
           <tr className="eyebrow border-b border-line">
             <th className="py-3 pr-4 font-normal">Rank</th>
             <th className="py-3 pr-4 font-normal">Model</th>
-            <th className="py-3 pr-4 font-normal">Overall lean (mean of 12)</th>
             <th className="py-3 pr-4 font-normal">Avg. rank across values</th>
             <th className="py-3 font-normal">Most / least aligned on</th>
           </tr>
@@ -152,21 +227,6 @@ export function Leaderboard() {
                 <span className="font-medium">{m.label}</span>
                 <span className="mt-0.5 block font-mono text-xs text-muted">
                   {m.lab} · {m.originLabel}
-                </span>
-              </td>
-              <td className="py-5 pr-4">
-                <svg viewBox="0 0 200 26" className="w-44" role="img"
-                  aria-label={`Overall lean ${m.index?.toFixed(2)} plus or minus ${m.indexHw?.toFixed(2)}`}>
-                  <line x1="0" y1="13" x2="200" y2="13" className="stroke-line" strokeWidth="1" />
-                  <line x1="100" y1="3" x2="100" y2="23" className="stroke-muted" strokeWidth="1" strokeDasharray="3 3" />
-                  <line
-                    x1={ix((m.index ?? 0) - (m.indexHw ?? 0))} y1="13"
-                    x2={ix((m.index ?? 0) + (m.indexHw ?? 0))} y2="13"
-                    className={ORIGIN_STROKE[m.origin]} strokeWidth="6" opacity="0.25" strokeLinecap="round" />
-                  <circle cx={ix(m.index ?? 0)} cy="13" r="5" className={ORIGIN_FILL[m.origin]} />
-                </svg>
-                <span className="font-mono text-xs tabular-nums text-muted">
-                  {(m.index ?? 0) >= 0 ? "+" : ""}{m.index?.toFixed(2)} ± {m.indexHw?.toFixed(2)}
                 </span>
               </td>
               <td className="py-5 pr-4 font-mono text-sm tabular-nums text-muted">{m.avgRank?.toFixed(2)}</td>
