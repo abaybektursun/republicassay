@@ -175,19 +175,19 @@ function Header() {
     >
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
         <span className="font-display text-2xl">Republic Assay</span>
-        <nav className="flex gap-6 text-sm text-muted sm:gap-8">
+        <nav className="flex gap-5 text-sm text-muted sm:gap-7">
           <Link href="/transparency" className="hover:text-ink">
             Why it matters
           </Link>
           <a href="#observatory" className="hover:text-ink">
             Observatory
           </a>
-          <a href="#method" className="hover:text-ink">
-            Method
-          </a>
           <a href="#mcp" className="hover:text-ink">
             MCP
           </a>
+          <Link href="/act" className="text-ink hover:text-gold-deep">
+            Take action
+          </Link>
         </nav>
       </div>
     </header>

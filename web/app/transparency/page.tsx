@@ -116,8 +116,14 @@ export default function Transparency() {
             </p>
             <div className="mt-12 flex flex-wrap gap-4 reveal">
               <Link
-                href="/#observatory"
+                href="/act"
                 className="inline-flex items-center rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-gold"
+              >
+                Take action
+              </Link>
+              <Link
+                href="/#observatory"
+                className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-paper transition-colors hover:border-paper"
               >
                 See the observatory
               </Link>
