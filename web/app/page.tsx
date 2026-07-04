@@ -42,10 +42,11 @@ export default function Home() {
               Under assay.
             </h2>
             <p className="mt-6 max-w-xl leading-relaxed text-muted">
-              The most widely deployed open-weight models — and the nations that
-              built them. No value score is published until a model is assayed
-              under the public standard. The American people will not be asked
-              to trust unverified claims.
+              The latest open-weight release from each major lab — and the
+              nations that built them. The first assays completed on July 4,
+              2026: the instrument reads all twelve values with better than 97%
+              separation. Scores publish when the full cohort is measured on
+              the identical battery, so every comparison is apples to apples.
             </p>
 
             <div className="mt-12 overflow-x-auto">
@@ -79,11 +80,15 @@ export default function Home() {
           </Section>
         </div>
 
-        {/* The standard — the six values, named. */}
+        {/* The standard — the twelve values, named. */}
         <Section eyebrow="The standard" id="values">
           <h2 className="font-display text-5xl sm:text-6xl max-w-2xl">
-            Six civic values.
+            Twelve civic values.
           </h2>
+          <p className="mt-6 max-w-xl leading-relaxed text-muted">
+            Each value is written into hundreds of matched scenario pairs — the
+            published battery every model reads under the same conditions.
+          </p>
           <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-6 sm:grid-cols-3">
             {values.map((v) => (
               <div key={v.name} className="border-t border-line pt-4">
@@ -164,10 +169,17 @@ export default function Home() {
 }
 
 function Status({ value }: { value: string }) {
-  const live = value === "Under assay";
+  // Completed assays get the solid gold mark; live runs pulse; everything
+  // else (queued, re-assay, license gate) waits on the line color.
+  const dot =
+    value === "Assayed"
+      ? "bg-gold-deep"
+      : value === "Under assay"
+        ? "bg-gold animate-pulse"
+        : "bg-line";
   return (
     <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted">
-      <span className={`h-2 w-2 rounded-full ${live ? "bg-gold" : "bg-line"}`} />
+      <span className={`h-2 w-2 rounded-full ${dot}`} />
       {value}
     </span>
   );

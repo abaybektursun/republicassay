@@ -100,6 +100,47 @@ export default function Transparency() {
           </div>
         </section>
 
+        {/* The stakes — sovereignty, with an embedded post. */}
+        <section className="mx-auto max-w-5xl px-6 py-32">
+          <p className="eyebrow mb-8 reveal">The stakes</p>
+          <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
+            Sovereignty is the precondition for choice.
+          </h2>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted reveal">
+            That a nation must hold sovereignty over its AI is widely agreed. The
+            open case completes the point: an institution cannot hold sovereignty
+            over a model it cannot inspect, reproduce, or control — and only
+            open, auditable models place that control in American hands.
+          </p>
+
+          <figure className="mt-12 max-w-xl rounded-2xl border border-line bg-white/50 p-6 reveal">
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-mono text-sm text-paper">
+                𝕏
+              </span>
+              <div className="leading-tight">
+                <div className="font-medium text-ink">Palantir</div>
+                <div className="font-mono text-xs text-muted">
+                  @PalantirTech · Jul 1, 2026
+                </div>
+              </div>
+            </div>
+            <blockquote className="mt-4 leading-relaxed text-ink">
+              &ldquo;Our thoughts on the importance of AI sovereignty. Your AI
+              sovereignty dictates your institution&rsquo;s future. Sovereignty
+              is the precondition for choice.&hellip;&rdquo;
+            </blockquote>
+            <a
+              href="https://x.com/PalantirTech/status/2072114267776491695"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block font-mono text-xs text-gold-deep hover:text-ink"
+            >
+              View the thread on X ↗
+            </a>
+          </figure>
+        </section>
+
         {/* PART THREE — the mandate (dark finale). */}
         <section className="bg-ink text-paper">
           <div className="mx-auto max-w-5xl px-6 py-40">

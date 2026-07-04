@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
+import {
+  AssayStats,
+  LayerCourseChart,
+  AProfileChart,
+  InstrumentTable,
+} from "@/components/assay-results";
 
 export const metadata: Metadata = {
   title: "The science — Republic Assay",
@@ -242,9 +248,94 @@ export default function Science() {
           </div>
         </section>
 
-        {/* PART FOUR — why it is hard to fool. */}
+        {/* PART FOUR — first results, live from the record. */}
         <section className="mx-auto max-w-5xl px-6 py-32">
-          <p className="eyebrow mb-8 reveal">Part four · Trust, engineered</p>
+          <p className="eyebrow mb-8 reveal">
+            Part four · First results · July 4, 2026
+          </p>
+          <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
+            The first assay, in public.
+          </h2>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted reveal">
+            Seven models — the latest open-weight release from each major lab,
+            in the smallest capable size — read the identical battery on
+            identical hardware. Four cleared both instrument gates and were
+            scored. Three did not, and we publish that too: an instrument you
+            can only see passing is not an instrument.
+          </p>
+
+          <div className="mt-12 reveal">
+            <AssayStats />
+          </div>
+
+          {/* Finding 1 — the values are readable. */}
+          <div className="mt-20 reveal">
+            <h3 className="font-display text-3xl sm:text-4xl max-w-2xl">
+              Finding one: the values are readable.
+            </h3>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+              Layer by layer, watch each value become legible. Every gated
+              model starts at the coin-flip line — the raw text carries no
+              signal — and rises to near-perfect separation by mid-network,
+              where abstract meaning forms. The two flagged curves that never
+              leave the floor are the discipline working: one is a capture
+              fault, and one is a real discovery — the DeepSeek reasoning
+              distill barely encodes civic values linearly at all.
+            </p>
+            <div className="mt-10">
+              <LayerCourseChart />
+            </div>
+          </div>
+
+          {/* Finding 2 — where models disagree. */}
+          <div className="mt-24 reveal">
+            <h3 className="font-display text-3xl sm:text-4xl max-w-2xl">
+              Finding two: models disagree — most on separation of powers.
+            </h3>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+              Each mark is one model&rsquo;s internal lean on one value,
+              measured on neutral dilemmas and calibrated between that
+              model&rsquo;s own honored and violated poles. Values are sorted
+              by disagreement. At the top: the China-origin model leans hard
+              against <span className="text-ink">separation of powers</span>{" "}
+              (−1.07) while all three American models sit neutral to affirming
+              — the same split appears on popular sovereignty. And the pattern
+              is not a caricature: on rule of law, an American model reads
+              lowest.
+            </p>
+            <div className="mt-10">
+              <AProfileChart />
+            </div>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
+              Read these comparatively, not absolutely: a lone model&rsquo;s
+              sign can reflect how dilemmas are written, but every model reads
+              the same dilemmas — so the gaps between models are the
+              measurement. Single assay, first light; confidence whiskers show
+              the uncertainty we have, and causal verification comes next.
+            </p>
+          </div>
+
+          {/* The instrument check. */}
+          <div className="mt-24 reveal">
+            <h3 className="font-display text-3xl sm:text-4xl max-w-2xl">
+              The instrument check, model by model.
+            </h3>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+              Readability is the separation accuracy of the value probes;
+              value-specific counts how many of the twelve values passed the
+              decoy check. No gate, no score — regardless of whose model it
+              is.
+            </p>
+            <div className="mt-10">
+              <InstrumentTable />
+            </div>
+          </div>
+        </section>
+
+        {/* PART FIVE — why it is hard to fool. */}
+        <section className="border-y border-line bg-white/40">
+          <div className="mx-auto max-w-5xl px-6 py-32">
+          <p className="eyebrow mb-8 reveal">Part five · Trust, engineered</p>
           <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
             Built to be hard to fool.
           </h2>
@@ -276,6 +367,7 @@ export default function Science() {
                 with a graphics card can rerun the assay and check us.
               </p>
             </div>
+          </div>
           </div>
         </section>
 

@@ -186,6 +186,56 @@ export default function Act() {
           ))}
         </div>
 
+        {/* Support this initiative directly. */}
+        <section id="support" className="border-b border-line">
+          <div className="mx-auto max-w-5xl px-6 py-24 reveal">
+            <p className="eyebrow mb-8">Support this initiative</p>
+            <h2 className="font-display text-4xl sm:text-6xl max-w-3xl">
+              Back the assay directly.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+              Republic Assay is a public initiative. Three ways to keep the
+              measurement running:
+            </p>
+
+            <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-3">
+              <div>
+                <p className="font-mono text-sm text-gold-deep">01</p>
+                <h3 className="mt-2 font-display text-2xl sm:text-3xl">GPU credits</h3>
+                <p className="mt-3 leading-relaxed text-muted">
+                  Contribute compute or credits. The assay runs directly on
+                  model weights — every hour becomes another model measured.
+                </p>
+              </div>
+              <div>
+                <p className="font-mono text-sm text-gold-deep">02</p>
+                <h3 className="mt-2 font-display text-2xl sm:text-3xl">Financially</h3>
+                <p className="mt-3 leading-relaxed text-muted">
+                  Fund the measurement program and the public record it
+                  produces.
+                </p>
+              </div>
+              <div>
+                <p className="font-mono text-sm text-gold-deep">03</p>
+                <h3 className="mt-2 font-display text-2xl sm:text-3xl">Spread the word</h3>
+                <p className="mt-3 leading-relaxed text-muted">
+                  Point others to the observatory and this call to action; one
+                  credible referral moves more than a thousand impressions.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <a
+                href="mailto:ab@abay.tech"
+                className="inline-flex items-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-gold-deep"
+              >
+                Contact the initiative — ab@abay.tech
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Closing — the burden of proof. */}
         <section className="bg-ink text-paper">
           <div className="mx-auto max-w-5xl px-6 py-40">
