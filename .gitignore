@@ -3,3 +3,6 @@
 
 # Local Playwright MCP screenshot scratch dir
 .playwright-mcp/
+
+# Raw activations pulled from S3 (hundreds of MB; canonical copy lives in the bucket)
+research/runs/*/acts/

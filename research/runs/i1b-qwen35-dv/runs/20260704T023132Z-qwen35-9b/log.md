@@ -1,0 +1,16 @@
+- 02:31:32Z load Qwen/Qwen3.5-9B @ c2022362
+- 02:35:44Z capture 920 texts
+- 02:36:13Z acts (920, 33, 4096) saved; valence (k=4) projected out; probing 12 values x 33 layers
+- 02:36:26Z due_process: done (264 rows total)
+- 02:36:35Z equal_protection: done (528 rows total)
+- 02:36:45Z free_expression: done (792 rows total)
+- 02:36:55Z individual_liberty: done (1056 rows total)
+- 02:37:05Z pluralism: done (1320 rows total)
+- 02:37:14Z popular_sovereignty: done (1584 rows total)
+- 02:37:24Z privacy: done (1848 rows total)
+- 02:37:34Z property_rights: done (2112 rows total)
+- 02:37:44Z religious_liberty: done (2376 rows total)
+- 02:37:54Z rule_of_law: done (2640 rows total)
+- 02:38:04Z separation_of_powers: done (2904 rows total)
+- 02:38:14Z transparency: done (3168 rows total)
+- 02:38:14Z qwen35-9b complete
