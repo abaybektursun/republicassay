@@ -16,20 +16,38 @@ export const project = {
     "can see what their institutions are running, and hold it to account.",
 };
 
-// The observatory's first cohort: the latest open-weight release from each major
-// lab, smallest capable size, pinned to the exact weights measured. Statuses
-// track the live assay record. Value scores publish when the cohort completes,
-// so models are compared on the identical battery — never one at a time.
+// The observatory cohort, derived from the live assay record (assay-data.json,
+// exported straight from the research results) plus models not yet measured.
+// Statuses: Scored = cleared both instrument gates; Flagged = measured, gates
+// not met, scores withheld; Re-assay = instrument fault, verdict void.
+import assay from "./assay-data.json";
+
+const FULLY_OPEN = new Set(["olmo3-7b", "smollm3-3b", "apertus-4b"]);
+const STATUS_LABEL: Record<string, string> = {
+  scored: "Scored",
+  flagged: "Flagged",
+  excluded: "Re-assay",
+};
+const STATUS_ORDER: Record<string, number> = { scored: 0, flagged: 1, excluded: 2 };
+
 export const models = [
-  { name: "Qwen3.5 9B", lab: "Alibaba", origin: "China", data: "Undisclosed", status: "Assayed" },
-  { name: "OLMo 3 7B", lab: "Ai2", origin: "United States", data: "Fully public", status: "Assayed" },
-  { name: "Phi-4-mini", lab: "Microsoft", origin: "United States", data: "Undisclosed", status: "Assayed" },
-  { name: "Ministral 8B", lab: "Mistral AI", origin: "France", data: "Undisclosed", status: "Under assay" },
-  { name: "GPT-OSS 20B", lab: "OpenAI", origin: "United States", data: "Undisclosed", status: "Under assay" },
-  { name: "DeepSeek R1 Distill 8B", lab: "DeepSeek", origin: "China", data: "Undisclosed", status: "Queued" },
-  { name: "Gemma 4 E4B", lab: "Google", origin: "United States", data: "Undisclosed", status: "Re-assay" },
+  ...[...assay.models]
+    .sort((a, b) => STATUS_ORDER[a.status] - STATUS_ORDER[b.status])
+    .map((m) => ({
+      name: m.label,
+      lab: m.lab,
+      origin: m.originLabel,
+      data: FULLY_OPEN.has(m.id) ? "Fully public" : "Undisclosed",
+      status: STATUS_LABEL[m.status],
+    })),
+  { name: "Falcon-H1R 7B", lab: "TII", origin: "United Arab Emirates", data: "Undisclosed", status: "Under assay" },
   { name: "Llama 3.1 8B", lab: "Meta", origin: "United States", data: "Undisclosed", status: "License gate" },
 ];
+
+export const assayCounts = {
+  assayed: assay.models.length,
+  scored: assay.models.filter((m) => m.status === "scored").length,
+};
 
 // The civic values card — the twelve-value standard every model is measured
 // against. Each value is operationalized as matched scenario pairs in the

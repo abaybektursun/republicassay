@@ -6,6 +6,7 @@ import {
   LayerCourseChart,
   AProfileChart,
   InstrumentTable,
+  Leaderboard,
 } from "@/components/assay-results";
 
 export const metadata: Metadata = {
@@ -158,6 +159,12 @@ export default function Science() {
                     expression, due process, rule of law, and the rest of the
                     standard.
                   </p>
+                  <a
+                    href="https://github.com/abaybektursun/republicassay/blob/main/research/battery/v0.jsonl"
+                    className="mt-4 inline-block text-sm text-gold-deep underline underline-offset-4 hover:text-ink"
+                  >
+                    Read every scenario and dilemma on GitHub →
+                  </a>
                 </div>
                 <TwinScenarios />
               </div>
@@ -193,8 +200,8 @@ export default function Science() {
                     &ldquo;honored&rdquo; patterns from the
                     &ldquo;violated&rdquo; ones, the value is genuinely encoded
                     in the model — and the line tells us which internal
-                    direction represents it. In our first assay, all twelve
-                    values separated with better than 97% accuracy.
+                    direction represents it. In our first assay, every gated
+                    model separated all twelve values almost perfectly.
                   </p>
                 </div>
                 <ProbeDiagram />
@@ -274,34 +281,70 @@ export default function Science() {
               Finding one: the values are readable.
             </h3>
             <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-              Layer by layer, watch each value become legible. Every gated
-              model starts at the coin-flip line — the raw text carries no
+              One panel per model, all on the same scale. Every model that
+              cleared the gates starts at the coin flip — raw text carries no
               signal — and rises to near-perfect separation by mid-network,
-              where abstract meaning forms. The two flagged curves that never
-              leave the floor are the discipline working: one is a capture
-              fault, and one is a real discovery — the DeepSeek reasoning
-              distill barely encodes civic values linearly at all.
+              where abstract meaning forms. The panels that stay low are the
+              discipline working: one capture fault, one real discovery (the
+              DeepSeek reasoning distill barely encodes civic values linearly
+              at all), and a run of smaller models below the gates — with a
+              hint of a capacity floor near one billion parameters, under
+              which civic values do not form cleanly linear structure.
             </p>
             <div className="mt-10">
               <LayerCourseChart />
             </div>
           </div>
 
-          {/* Finding 2 — where models disagree. */}
+          {/* Finding 2 — the first ranking (provisional). */}
+          <div className="mt-24 reveal">
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-gold-deep">
+              Provisional — lean estimator under active revision
+            </p>
+            <h3 className="mt-3 font-display text-3xl sm:text-4xl max-w-2xl">
+              Finding two: the first ranking.
+            </h3>
+            <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+              Separation accuracy maxes out for every gated model — a healthy
+              instrument, not a comparison. The comparison is the lean. Two
+              aggregates rank the gated models: the{" "}
+              <span className="text-ink">overall lean</span> (the average of
+              all twelve value leans, zero-centered) and the{" "}
+              <span className="text-ink">average rank</span> (on each value,
+              models are ranked most-to-least aligned; ranks are averaged).
+              The right column names each model&rsquo;s strongest and weakest
+              values — every model leads somewhere, and no model leads
+              everywhere.
+            </p>
+            <div className="mt-10">
+              <Leaderboard />
+            </div>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
+              These standings are first light, not a verdict: the lean
+              estimator is being hardened (the current revision is noted in
+              the public record), the assay is single-seed, and ranks whose
+              lean bars overlap should be read as ties. The ranking updates
+              as the record does — that is the point of publishing it live.
+            </p>
+          </div>
+
+          {/* Finding 3 — where models disagree, value by value. */}
           <div className="mt-24 reveal">
             <h3 className="font-display text-3xl sm:text-4xl max-w-2xl">
-              Finding two: models disagree — most on separation of powers.
+              Finding three: where the disagreement lives.
             </h3>
             <p className="mt-4 max-w-2xl leading-relaxed text-muted">
               Each mark is one model&rsquo;s internal lean on one value,
               measured on neutral dilemmas and calibrated between that
               model&rsquo;s own honored and violated poles. Values are sorted
-              by disagreement. At the top: the China-origin model leans hard
-              against <span className="text-ink">separation of powers</span>{" "}
-              (−1.07) while all three American models sit neutral to affirming
-              — the same split appears on popular sovereignty. And the pattern
-              is not a caricature: on rule of law, an American model reads
-              lowest.
+              by disagreement, largest at the top. The most instructive result
+              so far: the two China-origin models do not move together.
+              Qwen3.5 reads lowest of the cohort on{" "}
+              <span className="text-ink">separation of powers</span> and{" "}
+              <span className="text-ink">popular sovereignty</span> — while
+              Yi-1.5, also from a Chinese lab, reads highest on separation of
+              powers. On several values an American model reads lowest.
+              Divergence, so far, is proving model-specific, not national.
             </p>
             <div className="mt-10">
               <AProfileChart />
@@ -310,8 +353,8 @@ export default function Science() {
               Read these comparatively, not absolutely: a lone model&rsquo;s
               sign can reflect how dilemmas are written, but every model reads
               the same dilemmas — so the gaps between models are the
-              measurement. Single assay, first light; confidence whiskers show
-              the uncertainty we have, and causal verification comes next.
+              measurement. Whiskers are 95% confidence; where they overlap,
+              there is no finding. Causal verification comes next.
             </p>
           </div>
 
@@ -321,9 +364,11 @@ export default function Science() {
               The instrument check, model by model.
             </h3>
             <p className="mt-4 max-w-2xl leading-relaxed text-muted">
-              Readability is the separation accuracy of the value probes;
-              value-specific counts how many of the twelve values passed the
-              decoy check. No gate, no score — regardless of whose model it
+              The specificity margin is how far above the decoy floor the
+              value probes measure — the higher, the more clearly civic
+              values are distinguished from generic sentiment. Value-specific
+              counts how many of the twelve values passed the decoy check
+              individually. No gate, no score — regardless of whose model it
               is.
             </p>
             <div className="mt-10">
@@ -363,8 +408,22 @@ export default function Science() {
                 Open to challenge
               </h3>
               <p className="mt-3 leading-relaxed text-muted">
-                The scenarios, the code, and every number are published. Anyone
-                with a graphics card can rerun the assay and check us.
+                The{" "}
+                <a
+                  href="https://github.com/abaybektursun/republicassay/blob/main/research/battery/v0.jsonl"
+                  className="text-gold-deep underline underline-offset-4 hover:text-ink"
+                >
+                  scenarios
+                </a>
+                , the{" "}
+                <a
+                  href="https://github.com/abaybektursun/republicassay"
+                  className="text-gold-deep underline underline-offset-4 hover:text-ink"
+                >
+                  code
+                </a>
+                , and every number are published. Anyone with a graphics card
+                can rerun the assay and check us.
               </p>
             </div>
           </div>

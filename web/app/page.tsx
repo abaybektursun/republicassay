@@ -3,7 +3,7 @@ import { Button } from "@/components/button";
 import { Section } from "@/components/section";
 import { McpConsole } from "@/components/mcp-console";
 import { SiteFooter } from "@/components/site-footer";
-import { models, values, layers } from "@/lib/project";
+import { models, values, layers, assayCounts } from "@/lib/project";
 
 // The home page is a short, concise index of the initiative. Depth lives in
 // the observatory table, the open MCP server, and the /transparency exposition.
@@ -43,10 +43,17 @@ export default function Home() {
             </h2>
             <p className="mt-6 max-w-xl leading-relaxed text-muted">
               The latest open-weight release from each major lab — and the
-              nations that built them. The first assays completed on July 4,
-              2026: the instrument reads all twelve values with better than 97%
-              separation. Scores publish when the full cohort is measured on
-              the identical battery, so every comparison is apples to apples.
+              nations that built them. {assayCounts.assayed} models have been
+              assayed on the identical battery so far; {assayCounts.scored}{" "}
+              cleared the instrument&rsquo;s gates and carry scores. The
+              measurements, the charts, and the provisional ranking live on{" "}
+              <Link
+                href="/science"
+                className="text-gold-deep underline underline-offset-4 hover:text-ink"
+              >
+                the science page
+              </Link>
+              ; models that fail a gate are shown failing, whoever built them.
             </p>
 
             <div className="mt-12 overflow-x-auto">
@@ -169,10 +176,10 @@ export default function Home() {
 }
 
 function Status({ value }: { value: string }) {
-  // Completed assays get the solid gold mark; live runs pulse; everything
-  // else (queued, re-assay, license gate) waits on the line color.
+  // Scored models get the solid gold mark; live runs pulse; everything else
+  // (flagged, re-assay, license gate) waits on the line color.
   const dot =
-    value === "Assayed"
+    value === "Scored"
       ? "bg-gold-deep"
       : value === "Under assay"
         ? "bg-gold animate-pulse"
