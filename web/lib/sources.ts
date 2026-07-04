@@ -29,7 +29,7 @@ export const champions: Source[] = [
     url: "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
     quote:
       "The United States' advantage is decentralized and open innovation … constraining American innovation to closed development increases the chance that we don't lead at all.",
-    note: "Backed by shipping Llama and making it available to U.S. defense and intelligence — though it is also Meta's competitive playbook, and by Lambert's standard it is open weights, not fully open.",
+    note: "Backed by action: Meta shipped Llama and made it available to U.S. defense and intelligence.",
   },
   {
     name: "David Sacks",
@@ -47,7 +47,7 @@ export const champions: Source[] = [
     url: "https://a16z.com/american-dynamism/",
     paraphrase:
       "Open, decentralized technology is an American strength to be defended — and a16z's policy work helped write open-weight language into the Action Plan itself.",
-    note: "The policy wins are the evidence; the manifestos are coalition fuel.",
+    note: "American Dynamism turned the argument into policy: open-weight language now sits in the national plan.",
   },
 ];
 
@@ -58,15 +58,5 @@ export const distinction: Source = {
   url: "https://www.interconnects.ai/p/the-american-deepseek-project",
   quote:
     "A fully open model, as opposed to just an 'open weights' model, comes with data, training code, logs, and decision making — on top of the weights to run inference.",
-  note: "Lambert ships OLMo and Tülu at Ai2 — genuinely open American models, released with data, code, logs, and checkpoints, not weights alone. He is the rare patriotic-open voice backed by a shipped model, not a manifesto.",
-};
-
-export const counter: Source = {
-  name: "Alex Karp",
-  role: "Palantir",
-  work: "The Technological Republic · 2025",
-  url: "https://techrepublicbook.com/",
-  paraphrase:
-    "Silicon Valley abandoned the national project; technology must return to the service of American power and security through a public-private partnership in the spirit of the Manhattan Project — or the West cedes the field to China.",
-  note: "The most forceful 'technology must serve the Republic' argument belongs to the head of a closed-model defense company. The strongest republic framing sits on the closed side. This is the counter to beat.",
+  note: "Lambert ships OLMo and Tülu at Ai2 — genuinely open American models, released with data, code, logs, and checkpoints, not weights alone. The rare patriotic-open voice backed by a shipped model, not a manifesto.",
 };

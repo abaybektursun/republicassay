@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button } from "@/components/button";
 import { VoicesExplorer } from "@/components/voices-explorer";
 import { OpennessSpectrum } from "@/components/openness-spectrum";
-import { actionPlan, champions, distinction, counter } from "@/lib/sources";
+import { actionPlan, champions, distinction } from "@/lib/sources";
 
 export const metadata: Metadata = {
-  title: "The case for open weights — Republic Assay",
+  title: "The case for open models — Republic Assay",
   description:
-    "Why America's leaders argue for open models founded on American values — in their own words — and the strongest counter, answered.",
+    "Why America's leaders argue for open models founded on American values — in their own words — and why transparency keeps them true to the Republic.",
 };
 
 export default function Transparency() {
@@ -92,70 +91,43 @@ export default function Transparency() {
           </div>
         </section>
 
-        {/* PART THREE — the counter, answered (dark). */}
+        {/* PART THREE — the mandate (dark finale). */}
         <section className="bg-ink text-paper">
           <div className="mx-auto max-w-5xl px-6 py-40">
             <p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-gold reveal">
-              Part three · The counter we must beat
+              Part three · The mandate
             </p>
             <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
-              The strongest republic voice is on the closed side.
+              Open, transparent, and true to the Republic.
             </h2>
-
-            <div className="mt-12 max-w-3xl reveal">
-              <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-gold">
-                Position
-              </p>
-              <p className="text-2xl leading-snug text-paper/90">{counter.paraphrase}</p>
-              <p className="mt-6 font-mono text-xs uppercase tracking-[0.15em] text-paper/40">
-                {counter.name} · {counter.work}
-              </p>
+            <p className="mt-10 max-w-2xl text-lg leading-relaxed text-paper/70 reveal">
+              The record is united. America&apos;s future runs on open models,
+              founded on American values — and a model the people can inspect is
+              the only kind a republic can trust with its work. Openness makes
+              accountability possible; transparency makes it real; American
+              values make it ours.
+            </p>
+            <p className="mt-16 max-w-3xl font-display text-3xl sm:text-5xl reveal">
+              Republic Assay is the instrument that holds every model to that
+              standard —{" "}
+              <span className="text-gold">
+                in public, so the claim can always be checked.
+              </span>
+            </p>
+            <div className="mt-12 flex flex-wrap gap-4 reveal">
+              <Link
+                href="/#observatory"
+                className="inline-flex items-center rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-gold"
+              >
+                See the observatory
+              </Link>
+              <Link
+                href="/#mcp"
+                className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-paper transition-colors hover:border-paper"
+              >
+                Query the open server
+              </Link>
             </div>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/70 reveal">
-              {counter.note}
-            </p>
-
-            <p className="mt-20 max-w-3xl font-display text-3xl sm:text-5xl reveal">
-              Karp is right that technology must serve the Republic. The record
-              above shows why it must be <span className="text-gold">open</span> to
-              do it.
-            </p>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/70 reveal">
-              A republic governs by the oversight of the governed. A closed model
-              placed inside a public institution cannot be inspected by the
-              people it rules — and, as Zuckerberg warns, it concentrates the
-              substrate in &ldquo;a small number of big companies plus our
-              geopolitical adversaries.&rdquo; As Lambert shows, it cannot even be
-              reproduced or verified. The Nation&apos;s own policy does not
-              conclude for the black box. It concludes for leading open models
-              founded on American values.
-            </p>
-            <a
-              href={counter.url}
-              className="mt-8 inline-block text-sm text-gold underline underline-offset-4 hover:text-paper reveal"
-            >
-              Read the counter →
-            </a>
-          </div>
-        </section>
-
-        {/* PART FOUR — the mandate. */}
-        <section className="mx-auto max-w-5xl px-6 py-40">
-          <p className="eyebrow mb-8 reveal">Part four · The standard the record demands</p>
-          <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
-            Open, and proven so.
-          </h2>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted reveal">
-            The leaders agree on the goal: American open models, founded on
-            American values. Republic Assay is the instrument that holds them to
-            it — measuring each model against that standard, in public, so the
-            claim can be checked.
-          </p>
-          <div className="mt-12 flex flex-wrap gap-4 reveal">
-            <Button href="/#observatory">See the observatory</Button>
-            <Button href="/#mcp" variant="outline">
-              Query the open server
-            </Button>
           </div>
         </section>
       </main>
