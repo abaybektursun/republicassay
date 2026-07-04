@@ -172,7 +172,10 @@ function Header() {
     <header className="sticky top-0 z-10 border-b border-line bg-paper/80 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
         <span className="font-display text-2xl">Republic Assay</span>
-        <nav className="flex gap-8 text-sm text-muted">
+        <nav className="flex gap-6 text-sm text-muted sm:gap-8">
+          <a href="/transparency" className="hover:text-ink">
+            Why it matters
+          </a>
           <a href="#observatory" className="hover:text-ink">
             Observatory
           </a>
