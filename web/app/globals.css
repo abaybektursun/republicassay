@@ -66,6 +66,17 @@ html {
   }
 }
 
+/* Time-based entrance for interactive reveals (probe demo, threat detail).
+   Runs when the element mounts; stagger with an inline animation-delay. */
+.probe-in {
+  animation: reveal-rise 0.5s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .probe-in {
+    animation: none;
+  }
+}
+
 /* Reading-progress bar, driven by the document's scroll position. */
 .scroll-progress {
   transform: scaleX(0);
