@@ -20,7 +20,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Republic Assay — Strengthening the Republic through transparency",
+  title: "Republic Assay — Transparency for the Republic",
   description:
     "A public initiative strengthening the American Republic by opening the AI models entering public life to the people — and measuring them against American values.",
 };

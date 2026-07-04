@@ -15,12 +15,10 @@ export default function Home() {
         {/* Hero — the mission, in one breath. */}
         <Section className="pt-28 pb-24">
           <p className="eyebrow mb-8">A public AI accountability initiative</p>
-          <h1 className="font-display text-6xl sm:text-8xl md:text-9xl max-w-4xl">
-            Strengthening
+          <h1 className="font-display text-7xl sm:text-8xl md:text-9xl max-w-4xl">
+            Transparency
             <br />
-            the Republic
-            <br />
-            through <span className="text-gold-deep">transparency.</span>
+            for the <span className="text-gold-deep">Republic.</span>
           </h1>
           <p className="mt-10 max-w-xl text-lg leading-relaxed text-muted">
             The AI models entering our institutions are opaque. A republic is
