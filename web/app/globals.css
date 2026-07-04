@@ -77,6 +77,51 @@ html {
   }
 }
 
+/* Page transitions — native View Transitions API, GPU-composited.
+   Old content leaves fast; new content arrives gently, with a slight rise. */
+@keyframes vt-page-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+::view-transition-old(.page-out) {
+  animation: 180ms cubic-bezier(0.4, 0, 1, 1) both vt-page-out;
+}
+::view-transition-new(.page-in) {
+  animation: 380ms cubic-bezier(0, 0, 0.2, 1) 130ms both vt-page-in;
+}
+
+/* Keep the site header rock-steady while the content transitions. */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 50;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
 /* Reading-progress bar, driven by the document's scroll position. */
 .scroll-progress {
   transform: scaleX(0);

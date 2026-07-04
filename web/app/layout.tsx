@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
@@ -19,9 +20,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Republic Assay — The values inside open-weight AI",
+  title: "Republic Assay — Strengthening the Republic through transparency",
   description:
-    "A public initiative measuring the values built into open-weight AI against the founding values of the American Republic.",
+    "A public initiative strengthening the American Republic by opening the AI models entering public life to the people — and measuring them against American values.",
 };
 
 export default function RootLayout({
@@ -34,7 +35,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full">
+        <ViewTransition enter="page-in" exit="page-out">
+          <div className="flex min-h-screen flex-col">{children}</div>
+        </ViewTransition>
+      </body>
     </html>
   );
 }

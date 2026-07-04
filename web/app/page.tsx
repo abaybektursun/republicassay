@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/button";
 import { Section } from "@/components/section";
 import { McpConsole } from "@/components/mcp-console";
@@ -15,14 +16,17 @@ export default function Home() {
         <Section className="pt-28 pb-24">
           <p className="eyebrow mb-8">A public AI accountability initiative</p>
           <h1 className="font-display text-6xl sm:text-8xl md:text-9xl max-w-4xl">
-            The values inside
+            Strengthening
             <br />
-            <span className="text-gold-deep">open-weight AI.</span>
+            the Republic
+            <br />
+            through <span className="text-gold-deep">transparency.</span>
           </h1>
           <p className="mt-10 max-w-xl text-lg leading-relaxed text-muted">
-            These systems now run inside our institutions. Republic Assay
-            measures what they value — against the values of the American
-            Republic, in full public view.
+            The AI models entering our institutions are opaque. A republic is
+            only as strong as what its citizens can see — so Republic Assay
+            opens these models to the American people, and measures them
+            against our values.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button href="#observatory">The observatory</Button>
@@ -167,13 +171,16 @@ function Status({ value }: { value: string }) {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-10 border-b border-line bg-paper/80 backdrop-blur">
+    <header
+      style={{ viewTransitionName: "site-header" }}
+      className="sticky top-0 z-10 border-b border-line bg-paper/80 backdrop-blur"
+    >
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
         <span className="font-display text-2xl">Republic Assay</span>
         <nav className="flex gap-6 text-sm text-muted sm:gap-8">
-          <a href="/transparency" className="hover:text-ink">
+          <Link href="/transparency" className="hover:text-ink">
             Why it matters
-          </a>
+          </Link>
           <a href="#observatory" className="hover:text-ink">
             Observatory
           </a>

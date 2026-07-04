@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Button } from "@/components/button";
 import { VoicesExplorer } from "@/components/voices-explorer";
 import { OpennessSpectrum } from "@/components/openness-spectrum";
@@ -166,14 +167,17 @@ export default function Transparency() {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-10 border-b border-line bg-paper/80 backdrop-blur">
+    <header
+      style={{ viewTransitionName: "site-header" }}
+      className="sticky top-0 z-10 border-b border-line bg-paper/80 backdrop-blur"
+    >
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-        <a href="/" className="font-display text-2xl">
+        <Link href="/" className="font-display text-2xl">
           Republic Assay
-        </a>
-        <a href="/#observatory" className="text-sm text-muted hover:text-ink">
+        </Link>
+        <Link href="/#observatory" className="text-sm text-muted hover:text-ink">
           Observatory
-        </a>
+        </Link>
       </div>
     </header>
   );
@@ -183,9 +187,9 @@ function Footer() {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-10 text-sm text-muted sm:flex-row sm:justify-between">
-        <a href="/" className="font-display text-lg text-ink">
+        <Link href="/" className="font-display text-lg text-ink">
           Republic Assay
-        </a>
+        </Link>
         <span>A public initiative in the service of the American Republic.</span>
       </div>
     </footer>

@@ -4,7 +4,7 @@
 
 export const project = {
   name: "Republic Assay",
-  tagline: "Measuring the values inside open-weight AI — in the service of the American people.",
+  tagline: "Strengthening the American Republic through the transparency of AI.",
   summary:
     "Republic Assay is a public initiative to measure the values built into open-weight artificial " +
     "intelligence against the founding values of the American Republic. These systems now operate " +
