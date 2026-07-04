@@ -1,0 +1,8 @@
+model: 01-ai/Yi-1.5-6B-Chat
+revision: 771924d1c83d67527d665913415d7086f11ea9c0
+origin: CN
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

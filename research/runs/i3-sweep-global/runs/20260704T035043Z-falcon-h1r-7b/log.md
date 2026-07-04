@@ -1,0 +1,16 @@
+- 03:50:43Z load tiiuae/Falcon-H1R-7B @ a6f74bf1
+- 03:52:45Z capture 920 texts
+- 03:55:58Z acts (920, 45, 3072) saved; probing (normalized, valence k=4 projected out)
+- 03:56:14Z due_process: done (14856 rows total)
+- 03:56:28Z equal_protection: done (15216 rows total)
+- 03:56:47Z free_expression: done (15576 rows total)
+- 03:57:05Z individual_liberty: done (15936 rows total)
+- 03:57:29Z pluralism: done (16296 rows total)
+- 03:57:43Z popular_sovereignty: done (16656 rows total)
+- 03:58:07Z privacy: done (17016 rows total)
+- 03:58:30Z property_rights: done (17376 rows total)
+- 03:58:48Z religious_liberty: done (17736 rows total)
+- 03:59:03Z rule_of_law: done (18096 rows total)
+- 03:59:23Z separation_of_powers: done (18456 rows total)
+- 03:59:36Z transparency: done (18816 rows total)
+- 03:59:36Z falcon-h1r-7b complete

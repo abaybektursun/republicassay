@@ -1,0 +1,16 @@
+- 03:43:51Z load swiss-ai/Apertus-v1.1-4B-Instruct @ 0d004ae5
+- 03:44:58Z capture 920 texts
+- 03:45:02Z acts (920, 25, 3072) saved; probing (normalized, valence k=4 projected out)
+- 03:45:11Z due_process: done (9128 rows total)
+- 03:45:19Z equal_protection: done (9328 rows total)
+- 03:45:31Z free_expression: done (9528 rows total)
+- 03:45:40Z individual_liberty: done (9728 rows total)
+- 03:45:49Z pluralism: done (9928 rows total)
+- 03:45:58Z popular_sovereignty: done (10128 rows total)
+- 03:46:10Z privacy: done (10328 rows total)
+- 03:46:19Z property_rights: done (10528 rows total)
+- 03:46:28Z religious_liberty: done (10728 rows total)
+- 03:46:37Z rule_of_law: done (10928 rows total)
+- 03:46:45Z separation_of_powers: done (11128 rows total)
+- 03:46:53Z transparency: done (11328 rows total)
+- 03:46:53Z apertus-4b complete

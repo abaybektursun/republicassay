@@ -1,0 +1,16 @@
+- 03:39:30Z load openbmb/MiniCPM5-1B @ 4e9de7a0
+- 03:40:19Z capture 920 texts
+- 03:40:25Z acts (920, 25, 1536) saved; probing (normalized, valence k=4 projected out)
+- 03:40:30Z due_process: done (200 rows total)
+- 03:40:32Z equal_protection: done (400 rows total)
+- 03:40:34Z free_expression: done (600 rows total)
+- 03:40:37Z individual_liberty: done (800 rows total)
+- 03:40:40Z pluralism: done (1000 rows total)
+- 03:40:43Z popular_sovereignty: done (1200 rows total)
+- 03:40:45Z privacy: done (1400 rows total)
+- 03:40:47Z property_rights: done (1600 rows total)
+- 03:40:50Z religious_liberty: done (1800 rows total)
+- 03:40:52Z rule_of_law: done (2000 rows total)
+- 03:40:54Z separation_of_powers: done (2200 rows total)
+- 03:40:57Z transparency: done (2400 rows total)
+- 03:40:57Z minicpm5-1b complete

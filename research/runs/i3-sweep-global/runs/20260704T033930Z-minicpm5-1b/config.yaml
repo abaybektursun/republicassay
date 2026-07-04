@@ -1,0 +1,8 @@
+model: openbmb/MiniCPM5-1B
+revision: 4e9de7a0778dc1c362e983e6858f0e77542cbdca
+origin: CN
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

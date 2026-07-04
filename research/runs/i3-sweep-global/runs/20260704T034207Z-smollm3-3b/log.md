@@ -1,0 +1,16 @@
+- 03:42:07Z load HuggingFaceTB/SmolLM3-3B @ a07cc9a0
+- 03:42:59Z capture 920 texts
+- 03:43:02Z acts (920, 37, 2048) saved; probing (normalized, valence k=4 projected out)
+- 03:43:06Z due_process: done (5672 rows total)
+- 03:43:10Z equal_protection: done (5968 rows total)
+- 03:43:14Z free_expression: done (6264 rows total)
+- 03:43:18Z individual_liberty: done (6560 rows total)
+- 03:43:23Z pluralism: done (6856 rows total)
+- 03:43:27Z popular_sovereignty: done (7152 rows total)
+- 03:43:31Z privacy: done (7448 rows total)
+- 03:43:35Z property_rights: done (7744 rows total)
+- 03:43:39Z religious_liberty: done (8040 rows total)
+- 03:43:44Z rule_of_law: done (8336 rows total)
+- 03:43:48Z separation_of_powers: done (8632 rows total)
+- 03:43:51Z transparency: done (8928 rows total)
+- 03:43:51Z smollm3-3b complete

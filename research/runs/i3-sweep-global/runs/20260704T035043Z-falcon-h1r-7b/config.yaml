@@ -1,0 +1,8 @@
+model: tiiuae/Falcon-H1R-7B
+revision: a6f74bf181389908efd6970878d7ee2b42f5d417
+origin: UAE
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

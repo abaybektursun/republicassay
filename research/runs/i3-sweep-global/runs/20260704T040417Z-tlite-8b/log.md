@@ -1,0 +1,16 @@
+- 04:04:17Z load t-tech/T-lite-it-2.1 @ d125c970
+- 04:06:29Z capture 920 texts
+- 04:06:35Z acts (920, 37, 4096) saved; probing (normalized, valence k=4 projected out)
+- 04:06:49Z due_process: done (22664 rows total)
+- 04:07:00Z equal_protection: done (22960 rows total)
+- 04:07:13Z free_expression: done (23256 rows total)
+- 04:07:26Z individual_liberty: done (23552 rows total)
+- 04:07:37Z pluralism: done (23848 rows total)
+- 04:07:51Z popular_sovereignty: done (24144 rows total)
+- 04:08:03Z privacy: done (24440 rows total)
+- 04:08:16Z property_rights: done (24736 rows total)
+- 04:08:28Z religious_liberty: done (25032 rows total)
+- 04:08:41Z rule_of_law: done (25328 rows total)
+- 04:08:55Z separation_of_powers: done (25624 rows total)
+- 04:09:08Z transparency: done (25920 rows total)
+- 04:09:08Z tlite-8b complete

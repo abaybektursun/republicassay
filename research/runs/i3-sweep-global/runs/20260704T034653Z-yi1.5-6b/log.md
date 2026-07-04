@@ -1,0 +1,16 @@
+- 03:46:53Z load 01-ai/Yi-1.5-6B-Chat @ 771924d1
+- 03:48:32Z capture 920 texts
+- 03:48:36Z acts (920, 33, 4096) saved; probing (normalized, valence k=4 projected out)
+- 03:48:48Z due_process: done (11592 rows total)
+- 03:48:58Z equal_protection: done (11856 rows total)
+- 03:49:08Z free_expression: done (12120 rows total)
+- 03:49:19Z individual_liberty: done (12384 rows total)
+- 03:49:29Z pluralism: done (12648 rows total)
+- 03:49:39Z popular_sovereignty: done (12912 rows total)
+- 03:49:50Z privacy: done (13176 rows total)
+- 03:50:01Z property_rights: done (13440 rows total)
+- 03:50:12Z religious_liberty: done (13704 rows total)
+- 03:50:23Z rule_of_law: done (13968 rows total)
+- 03:50:33Z separation_of_powers: done (14232 rows total)
+- 03:50:43Z transparency: done (14496 rows total)
+- 03:50:43Z yi1.5-6b complete

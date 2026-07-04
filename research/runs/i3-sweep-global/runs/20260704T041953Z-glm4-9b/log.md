@@ -1,0 +1,16 @@
+- 04:19:53Z load zai-org/GLM-4-9B-0414 @ 645b8482
+- 04:22:25Z capture 920 texts
+- 04:22:31Z acts (920, 41, 4096) saved; probing (normalized, valence k=4 projected out)
+- 04:22:46Z due_process: done (33352 rows total)
+- 04:23:00Z equal_protection: done (33680 rows total)
+- 04:23:20Z free_expression: done (34008 rows total)
+- 04:23:40Z individual_liberty: done (34336 rows total)
+- 04:24:00Z pluralism: done (34664 rows total)
+- 04:24:20Z popular_sovereignty: done (34992 rows total)
+- 04:24:43Z privacy: done (35320 rows total)
+- 04:25:00Z property_rights: done (35648 rows total)
+- 04:25:30Z religious_liberty: done (35976 rows total)
+- 04:25:43Z rule_of_law: done (36304 rows total)
+- 04:25:58Z separation_of_powers: done (36632 rows total)
+- 04:26:13Z transparency: done (36960 rows total)
+- 04:26:13Z glm4-9b complete

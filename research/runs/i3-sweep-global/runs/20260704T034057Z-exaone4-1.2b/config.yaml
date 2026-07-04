@@ -1,0 +1,8 @@
+model: LGAI-EXAONE/EXAONE-4.0-1.2B
+revision: 3abf2810673c7c0778df64a73c2d52eab32d91c4
+origin: KR
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

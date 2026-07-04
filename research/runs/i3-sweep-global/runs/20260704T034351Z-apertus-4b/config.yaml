@@ -1,0 +1,8 @@
+model: swiss-ai/Apertus-v1.1-4B-Instruct
+revision: 0d004ae50a03fda815ff7a091a89ab0baec94f3d
+origin: CH
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

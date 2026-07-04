@@ -1,0 +1,8 @@
+model: ibm-granite/granite-4.1-8b
+revision: 1504002f650e656a0a3789d99574df12e3e94ed0
+origin: US
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

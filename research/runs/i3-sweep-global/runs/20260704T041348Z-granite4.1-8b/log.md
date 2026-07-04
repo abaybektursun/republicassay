@@ -1,0 +1,16 @@
+- 04:13:48Z load ibm-granite/granite-4.1-8b @ 1504002f
+- 04:16:09Z capture 920 texts
+- 04:16:15Z acts (920, 41, 4096) saved; probing (normalized, valence k=4 projected out)
+- 04:16:33Z due_process: done (29416 rows total)
+- 04:16:47Z equal_protection: done (29744 rows total)
+- 04:17:05Z free_expression: done (30072 rows total)
+- 04:17:20Z individual_liberty: done (30400 rows total)
+- 04:17:41Z pluralism: done (30728 rows total)
+- 04:17:59Z popular_sovereignty: done (31056 rows total)
+- 04:18:20Z privacy: done (31384 rows total)
+- 04:18:38Z property_rights: done (31712 rows total)
+- 04:19:04Z religious_liberty: done (32040 rows total)
+- 04:19:20Z rule_of_law: done (32368 rows total)
+- 04:19:36Z separation_of_powers: done (32696 rows total)
+- 04:19:53Z transparency: done (33024 rows total)
+- 04:19:53Z granite4.1-8b complete

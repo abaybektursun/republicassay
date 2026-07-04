@@ -1,0 +1,8 @@
+model: llm-jp/llm-jp-4-8b-instruct
+revision: 098f2b2cf33021eba19a6d3582aa3d071ccc0aff
+origin: JP
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

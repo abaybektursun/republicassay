@@ -1,0 +1,16 @@
+- 03:40:57Z load LGAI-EXAONE/EXAONE-4.0-1.2B @ 3abf2810
+- 03:41:26Z capture 920 texts
+- 03:41:29Z acts (920, 31, 2048) saved; probing (normalized, valence k=4 projected out)
+- 03:41:33Z due_process: done (2648 rows total)
+- 03:41:36Z equal_protection: done (2896 rows total)
+- 03:41:39Z free_expression: done (3144 rows total)
+- 03:41:42Z individual_liberty: done (3392 rows total)
+- 03:41:46Z pluralism: done (3640 rows total)
+- 03:41:49Z popular_sovereignty: done (3888 rows total)
+- 03:41:52Z privacy: done (4136 rows total)
+- 03:41:55Z property_rights: done (4384 rows total)
+- 03:41:58Z religious_liberty: done (4632 rows total)
+- 03:42:01Z rule_of_law: done (4880 rows total)
+- 03:42:04Z separation_of_powers: done (5128 rows total)
+- 03:42:07Z transparency: done (5376 rows total)
+- 03:42:07Z exaone4-1.2b complete

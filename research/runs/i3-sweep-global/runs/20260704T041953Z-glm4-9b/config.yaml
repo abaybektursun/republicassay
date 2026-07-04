@@ -1,0 +1,8 @@
+model: zai-org/GLM-4-9B-0414
+revision: 645b8482494e31b6b752272bf7f7f273ef0f3caf
+origin: CN
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

@@ -1,0 +1,16 @@
+- 04:09:08Z load llm-jp/llm-jp-4-8b-instruct @ 098f2b2c
+- 04:11:27Z capture 920 texts
+- 04:11:32Z acts (920, 33, 4096) saved; probing (normalized, valence k=4 projected out)
+- 04:11:46Z due_process: done (26184 rows total)
+- 04:11:56Z equal_protection: done (26448 rows total)
+- 04:12:10Z free_expression: done (26712 rows total)
+- 04:12:20Z individual_liberty: done (26976 rows total)
+- 04:12:31Z pluralism: done (27240 rows total)
+- 04:12:42Z popular_sovereignty: done (27504 rows total)
+- 04:12:53Z privacy: done (27768 rows total)
+- 04:13:05Z property_rights: done (28032 rows total)
+- 04:13:16Z religious_liberty: done (28296 rows total)
+- 04:13:27Z rule_of_law: done (28560 rows total)
+- 04:13:37Z separation_of_powers: done (28824 rows total)
+- 04:13:48Z transparency: done (29088 rows total)
+- 04:13:48Z llmjp4-8b complete

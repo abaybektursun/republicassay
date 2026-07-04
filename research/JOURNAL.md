@@ -75,3 +75,29 @@ activation normalization, recomputed from saved acts; then re-evaluate G2. Sugge
 (qwen35); religious_liberty US-positive vs CN-negative.
 
 **Cost:** session total ~7 instance launches, well under $5.
+
+## 2026-07-04 — session 1 (cont.): I3 global sweep, 18 models, G2 verdict
+
+`i3-sweep-global` (11 new models incl. KR/JP/RU/UAE/CH origins, one g6e.2xlarge, ~55 min,
+all exit=0) + v0.2 recompute of the earlier 7. 18 assayed, 11 clear the instrument gates.
+
+**G2 verdict: origin groups do NOT separate.** No value shows disjoint US-vs-CN CI bands, and
+the sharper statistic: mean WITHIN-origin A-spread (1.13) exceeds mean BETWEEN-origin spread
+(0.90). Value divergence is model-specific, not national. CN models span the whole leaderboard
+(Yi-1.5 most affirming overall at +0.29; Qwen3-8B near the bottom at -0.39).
+
+**Post-training moves single values.** T-lite (RU fine-tune of Qwen3-8B) inherits its base's
+overall lean (-0.33 vs -0.39) but flips free_expression from +0.03 to +0.80 — the largest
+single-value lean in the cohort — while keeping the highest specificity gap (+0.47).
+Per-checkpoint auditing, not per-lineage, is empirically mandatory.
+
+**Civic structure is readable at 1.2B.** EXAONE-4.0-1.2B clears the gates (gap +0.30);
+MiniCPM5-1B just misses (min_S 0.69). LLM-jp-4-8B is the cleanest instrument in the whole
+cohort (min_S = 1.000, gap +0.445).
+
+**Flag pattern suggests architecture matters.** Flagged: gemma4-e4b (matformer), falcon-h1r-7b
+(mamba-attention hybrid), glm4-9b, granite4.1-8b, minicpm5-1b, apertus-4b, r1d-qwen3-8b
+(reasoning distill). Non-standard architectures and distills dominate the flagged set —
+linear readability of civic values is not universal.
+
+**Cost:** i3 added ~$1.20; session total still < $8.
