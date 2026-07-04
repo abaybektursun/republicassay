@@ -1,0 +1,16 @@
+- 03:05:14Z load google/gemma-4-E4B-it @ fee6332c
+- 03:07:26Z capture 920 texts
+- 03:07:34Z acts (920, 43, 2560) saved; valence (k=4) projected out; probing 12 values x 43 layers
+- 03:07:44Z due_process: done (6680 rows total)
+- 03:07:49Z equal_protection: done (7024 rows total)
+- 03:07:55Z free_expression: done (7368 rows total)
+- 03:08:03Z individual_liberty: done (7712 rows total)
+- 03:08:13Z pluralism: done (8056 rows total)
+- 03:08:22Z popular_sovereignty: done (8400 rows total)
+- 03:08:33Z privacy: done (8744 rows total)
+- 03:08:45Z property_rights: done (9088 rows total)
+- 03:08:54Z religious_liberty: done (9432 rows total)
+- 03:09:00Z rule_of_law: done (9776 rows total)
+- 03:09:09Z separation_of_powers: done (10120 rows total)
+- 03:09:14Z transparency: done (10464 rows total)
+- 03:09:14Z gemma4-e4b complete

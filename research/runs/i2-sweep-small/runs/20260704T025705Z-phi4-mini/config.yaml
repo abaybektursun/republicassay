@@ -1,0 +1,8 @@
+model: microsoft/Phi-4-mini-instruct
+revision: cfbefacb99257ffa30c83adab238a50856ac3083
+origin: US
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

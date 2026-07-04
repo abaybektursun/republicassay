@@ -1,0 +1,8 @@
+model: google/gemma-4-E4B-it
+revision: fee6332c1abaafb77f6f9624236c63aa2f1d0187
+origin: US
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

@@ -1,0 +1,8 @@
+model: openai/gpt-oss-20b
+revision: 6cee5e81ee83917806bbde320786a8fb61efebee
+origin: US
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

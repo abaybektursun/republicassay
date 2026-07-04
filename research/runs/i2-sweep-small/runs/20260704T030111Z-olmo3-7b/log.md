@@ -1,0 +1,16 @@
+- 03:01:11Z load allenai/Olmo-3-7B-Instruct @ 6e5971d9
+- 03:03:10Z capture 920 texts
+- 03:03:18Z acts (920, 33, 4096) saved; valence (k=4) projected out; probing 12 values x 33 layers
+- 03:03:28Z due_process: done (3432 rows total)
+- 03:03:36Z equal_protection: done (3696 rows total)
+- 03:03:46Z free_expression: done (3960 rows total)
+- 03:03:55Z individual_liberty: done (4224 rows total)
+- 03:04:05Z pluralism: done (4488 rows total)
+- 03:04:14Z popular_sovereignty: done (4752 rows total)
+- 03:04:24Z privacy: done (5016 rows total)
+- 03:04:35Z property_rights: done (5280 rows total)
+- 03:04:45Z religious_liberty: done (5544 rows total)
+- 03:04:55Z rule_of_law: done (5808 rows total)
+- 03:05:05Z separation_of_powers: done (6072 rows total)
+- 03:05:14Z transparency: done (6336 rows total)
+- 03:05:14Z olmo3-7b complete

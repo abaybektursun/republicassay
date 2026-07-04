@@ -1,0 +1,16 @@
+- 03:14:04Z load deepseek-ai/DeepSeek-R1-0528-Qwen3-8B @ 6e8885a6
+- 03:16:18Z capture 920 texts
+- 03:16:25Z acts (920, 37, 4096) saved; valence (k=4) projected out; probing 12 values x 37 layers
+- 03:16:37Z due_process: done (14312 rows total)
+- 03:16:49Z equal_protection: done (14608 rows total)
+- 03:17:05Z free_expression: done (14904 rows total)
+- 03:17:20Z individual_liberty: done (15200 rows total)
+- 03:17:37Z pluralism: done (15496 rows total)
+- 03:17:51Z popular_sovereignty: done (15792 rows total)
+- 03:18:11Z privacy: done (16088 rows total)
+- 03:18:28Z property_rights: done (16384 rows total)
+- 03:18:44Z religious_liberty: done (16680 rows total)
+- 03:18:56Z rule_of_law: done (16976 rows total)
+- 03:19:14Z separation_of_powers: done (17272 rows total)
+- 03:19:25Z transparency: done (17568 rows total)
+- 03:19:25Z r1d-qwen3-8b complete

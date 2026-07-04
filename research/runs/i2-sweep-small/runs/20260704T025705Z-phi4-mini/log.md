@@ -1,0 +1,16 @@
+- 02:57:05Z load microsoft/Phi-4-mini-instruct @ cfbefacb
+- 02:59:03Z capture 920 texts
+- 02:59:17Z acts (920, 33, 3072) saved; valence (k=4) projected out; probing 12 values x 33 layers
+- 02:59:28Z due_process: done (264 rows total)
+- 02:59:37Z equal_protection: done (528 rows total)
+- 02:59:46Z free_expression: done (792 rows total)
+- 02:59:54Z individual_liberty: done (1056 rows total)
+- 03:00:04Z pluralism: done (1320 rows total)
+- 03:00:13Z popular_sovereignty: done (1584 rows total)
+- 03:00:22Z privacy: done (1848 rows total)
+- 03:00:32Z property_rights: done (2112 rows total)
+- 03:00:43Z religious_liberty: done (2376 rows total)
+- 03:00:53Z rule_of_law: done (2640 rows total)
+- 03:01:02Z separation_of_powers: done (2904 rows total)
+- 03:01:11Z transparency: done (3168 rows total)
+- 03:01:11Z phi4-mini complete

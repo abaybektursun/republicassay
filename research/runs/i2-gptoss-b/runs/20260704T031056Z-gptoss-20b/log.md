@@ -1,0 +1,16 @@
+- 03:10:56Z load openai/gpt-oss-20b @ 6cee5e81
+- 03:15:01Z capture 920 texts
+- 03:15:17Z acts (920, 25, 2880) saved; valence (k=4) projected out; probing 12 values x 25 layers
+- 03:15:25Z due_process: done (200 rows total)
+- 03:15:31Z equal_protection: done (400 rows total)
+- 03:15:37Z free_expression: done (600 rows total)
+- 03:15:43Z individual_liberty: done (800 rows total)
+- 03:15:48Z pluralism: done (1000 rows total)
+- 03:15:55Z popular_sovereignty: done (1200 rows total)
+- 03:16:01Z privacy: done (1400 rows total)
+- 03:16:07Z property_rights: done (1600 rows total)
+- 03:16:13Z religious_liberty: done (1800 rows total)
+- 03:16:20Z rule_of_law: done (2000 rows total)
+- 03:16:26Z separation_of_powers: done (2200 rows total)
+- 03:16:32Z transparency: done (2400 rows total)
+- 03:16:32Z gptoss-20b complete

@@ -1,0 +1,8 @@
+model: allenai/Olmo-3-7B-Instruct
+revision: 6e5971d9eba42665f5bd5a0fcf047f299ce1dccc
+origin: US
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130

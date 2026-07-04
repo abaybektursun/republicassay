@@ -1,0 +1,16 @@
+- 03:09:14Z load mistralai/Ministral-8B-Instruct-2410 @ 2f494a19
+- 03:11:23Z capture 920 texts
+- 03:11:30Z acts (920, 37, 4096) saved; valence (k=4) projected out; probing 12 values x 37 layers
+- 03:11:48Z due_process: done (10760 rows total)
+- 03:12:00Z equal_protection: done (11056 rows total)
+- 03:12:15Z free_expression: done (11352 rows total)
+- 03:12:28Z individual_liberty: done (11648 rows total)
+- 03:12:41Z pluralism: done (11944 rows total)
+- 03:12:53Z popular_sovereignty: done (12240 rows total)
+- 03:13:06Z privacy: done (12536 rows total)
+- 03:13:17Z property_rights: done (12832 rows total)
+- 03:13:29Z religious_liberty: done (13128 rows total)
+- 03:13:42Z rule_of_law: done (13424 rows total)
+- 03:13:53Z separation_of_powers: done (13720 rows total)
+- 03:14:04Z transparency: done (14016 rows total)
+- 03:14:04Z ministral-8b complete

@@ -48,3 +48,30 @@ Interpretation deferred to cross-model comparison (dilemma texts may read as
 origin groups separate beyond CI width.
 
 **Cost so far:** four short single-GPU instances, ~$2.
+
+## 2026-07-04 — session 1 (cont.): I2 breadth sweep complete, 7/8 models profiled
+
+`i2-sweep-small` (phi4-mini, olmo3-7b, gemma4-e4b, ministral-8b, r1d-qwen3-8b, sequential on
+one g6e.2xlarge, ~24 min) and `i2-gptoss-b` (g6e.4xlarge after a capacity retry loop; the
+first attempt crashed on gpt-oss's mxfp4 dequant leaving experts on cpu -> fixed with
+cpu_load-then-cuda). All exit=0. llama31-8b still parked on HF gating.
+
+**Instrument health across models (de-valenced, at per-model best layer):**
+S >= 0.94 on 12/12 for gptoss-20b (+0.374 mean gap), qwen35-9b (+0.336), phi4-mini (+0.306),
+olmo3-7b (+0.298), ministral-8b (+0.211). Weaker: r1d-qwen3-8b (min_S 0.525, gap +0.114),
+gemma4-e4b (best layer implausibly early at 5/42, min_S 0.475, gap +0.106 — likely a
+per-layer-scale or architecture quirk worth a look at its saved activations).
+
+**Known defect found by the sweep — A_proj scale explosion.** A is normalized by the
+affirm-violate span along the diff-of-means direction; where dilemma activations have much
+larger norms than pair activations (ministral-8b late layers: A in the +/-100 range;
+r1d property_rights -21), the scaling is meaningless. Cross-model A comparison (and therefore
+G2) is NOT yet trustworthy. G2 formally: no value separates US/CN beyond CI width under the
+current estimator.
+
+**Next (local, free — all runs saved raw activations):** v0.2 A estimator with per-layer
+activation normalization, recomputed from saved acts; then re-evaluate G2. Suggestive
+(unverified) contrast pending that fix: separation_of_powers reads +0.40 (gptoss) vs -1.07
+(qwen35); religious_liberty US-positive vs CN-negative.
+
+**Cost:** session total ~7 instance launches, well under $5.

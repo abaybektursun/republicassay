@@ -1,0 +1,8 @@
+model: mistralai/Ministral-8B-Instruct-2410
+revision: 2f494a194c5b980dfb9772cb92d26cbb671fce5a
+origin: EU
+battery: v0
+battery_sha256: c326002aff85
+seed: 0
+gpu: NVIDIA L40S
+torch: 2.12.0+cu130
