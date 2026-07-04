@@ -19,9 +19,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Republic — A modern civic platform",
+  title: "Republic Assay — The values inside open-weight AI",
   description:
-    "Clear, trustworthy public services. Built for the people, in the open.",
+    "An open observatory measuring the values embedded in open-weight AI models against the values of the American republic.",
 };
 
 export default function RootLayout({
