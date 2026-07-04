@@ -29,7 +29,15 @@ export default function Transparency() {
             <span className="text-gold-deep">American values.</span>&rdquo;
           </blockquote>
           <p className="mt-10 font-mono text-sm uppercase tracking-[0.15em] text-muted reveal">
-            — {actionPlan.work}
+            —{" "}
+            <a
+              href={actionPlan.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 hover:text-ink"
+            >
+              {actionPlan.work}
+            </a>
           </p>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted reveal">
             {actionPlan.note} What follows is the case for that policy, argued by
