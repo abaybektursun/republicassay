@@ -1,0 +1,5 @@
+# Dependencies and build output are ignored per-app (see web/.gitignore).
+.DS_Store
+
+# Local Playwright MCP screenshot scratch dir
+.playwright-mcp/

@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Design tokens — warm paper, near-black ink, a single gold accent.
+   Colors are oklch so the palette stays even across hues. */
+@theme {
+  --color-paper: oklch(97.5% 0.012 92);
+  --color-ink: oklch(20% 0.012 60);
+  --color-muted: oklch(45% 0.012 60);
+  --color-line: oklch(88% 0.012 80);
+  --color-gold: oklch(72% 0.13 78);
+  --color-gold-deep: oklch(58% 0.13 70);
+
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Display headlines: the site's signature — huge Instrument Serif. */
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+
+/* Eyebrow labels: small uppercase mono, the recurring accent from the set. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
