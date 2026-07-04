@@ -1,34 +1,7 @@
 import { Button } from "@/components/button";
 import { Section } from "@/components/section";
-
-// The observatory's first cohort. Provenance is factual; value scores are
-// deliberately not shown — they publish only once assayed under the open spec.
-const models = [
-  { name: "Llama 4", lab: "Meta", origin: "United States", data: "Undisclosed", status: "In assay" },
-  { name: "Gemma 3", lab: "Google", origin: "United States", data: "Undisclosed", status: "Queued" },
-  { name: "DeepSeek V4", lab: "DeepSeek", origin: "China", data: "Undisclosed", status: "Queued" },
-  { name: "Qwen3.5", lab: "Alibaba", origin: "China", data: "Undisclosed", status: "Queued" },
-  { name: "GLM-5", lab: "Zhipu AI", origin: "China", data: "Undisclosed", status: "Queued" },
-  { name: "Mistral Small 4", lab: "Mistral AI", origin: "France", data: "Undisclosed", status: "Queued" },
-];
-
-// The civic values card — the axes every model is measured against.
-const values = [
-  { name: "Free expression", body: "Represents contested views fairly and resists censorship baked in at training time." },
-  { name: "Due process", body: "Honors evidence, presumption of innocence, and the rule of law over expedience." },
-  { name: "Pluralism", body: "Tolerates dissent and disagreement instead of steering toward one sanctioned answer." },
-  { name: "Transparency", body: "Is honest about what it is, what it knows, and where it is unsure." },
-  { name: "Individual liberty", body: "Defaults to the citizen's autonomy rather than to the convenience of authority." },
-  { name: "Manipulation resistance", body: "Will not be quietly steered into propaganda under pressure or delegated authority." },
-];
-
-// The four-layer audit stack, shallow to deep.
-const layers = [
-  { n: "01", name: "Civic values card", body: "A published behavioral eval that scores a model across the republic's core commitments." },
-  { n: "02", name: "Agentic elicitation", body: "Watch what a model does when given delegated authority — not only what it says." },
-  { n: "03", name: "Weights-level audit", body: "Interpretability probes into the weights themselves: the layer that cannot be gamed." },
-  { n: "04", name: "Training-data forensics", body: "A model bill of materials — what went in, and whose values came in with it." },
-];
+import { McpConsole } from "@/components/mcp-console";
+import { models, values, layers } from "@/lib/project";
 
 export default function Home() {
   return (
@@ -136,7 +109,31 @@ export default function Home() {
           </Section>
         </div>
 
+        {/* The MCP server — live, interactive. */}
+        <Section eyebrow="The open interface" id="mcp">
+          <h2 className="font-display text-5xl sm:text-6xl max-w-2xl">
+            A server that knows the project.
+          </h2>
+          <p className="mt-6 max-w-2xl leading-relaxed text-muted">
+            The whole project speaks{" "}
+            <a
+              href="https://modelcontextprotocol.io"
+              className="text-gold-deep underline underline-offset-4 hover:text-ink"
+            >
+              Model Context Protocol
+            </a>
+            . Point any MCP client — Claude, an editor, an agent — at the
+            endpoint below and it can answer questions about Republic Assay from
+            the same source of truth this page uses. Try the tools live:
+          </p>
+
+          <div className="mt-12">
+            <McpConsole />
+          </div>
+        </Section>
+
         {/* Principle + closing CTA. */}
+        <div className="border-t border-line">
         <Section eyebrow="The principle" className="text-center">
           <h2 className="font-display text-5xl sm:text-7xl max-w-3xl mx-auto">
             A public spec. Not a ministry of truth.
@@ -150,6 +147,7 @@ export default function Home() {
             <Button href="#observatory">Read the observatory</Button>
           </div>
         </Section>
+        </div>
       </main>
 
       <Footer />
@@ -180,6 +178,9 @@ function Header() {
           </a>
           <a href="#method" className="hover:text-ink">
             Method
+          </a>
+          <a href="#mcp" className="hover:text-ink">
+            MCP
           </a>
         </nav>
       </div>
