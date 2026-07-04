@@ -129,7 +129,9 @@ const tools = [
   },
 ];
 
-function dispatch(method: string, params: any) {
+type RpcParams = { protocolVersion?: string; name?: string } | undefined;
+
+function dispatch(method: string, params: RpcParams) {
   if (method === "initialize")
     return {
       result: {
@@ -157,7 +159,13 @@ function json(statusCode: number, obj: unknown) {
   return { statusCode, headers: { "content-type": "application/json" }, body: JSON.stringify(obj) };
 }
 
-export const handler = async (event: any) => {
+type HttpLambdaEvent = {
+  requestContext?: { http?: { method?: string } };
+  isBase64Encoded?: boolean;
+  body: string;
+};
+
+export const handler = async (event: HttpLambdaEvent) => {
   if (event.requestContext?.http?.method !== "POST")
     return json(405, { error: "Use HTTP POST with a JSON-RPC message." });
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const ENDPOINT = "https://mcp.republicassay.us/mcp";
 
@@ -26,9 +26,9 @@ export function McpConsole() {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(true);
 
-  async function callTool(name: string) {
-    setActive(name);
-    setLoading(true);
+  // The network half: state updates land in fetch callbacks, never
+  // synchronously inside an effect body.
+  const fetchTool = useCallback(async (name: string) => {
     const res = await fetch(ENDPOINT, {
       method: "POST",
       headers: { "content-type": "application/json", accept: "application/json" },
@@ -43,13 +43,21 @@ export function McpConsole() {
     const data = await res.json();
     setOutput(data.result?.content?.[0]?.text ?? JSON.stringify(data, null, 2));
     setLoading(false);
+  }, []);
+
+  function callTool(name: string) {
+    setActive(name);
+    setLoading(true);
+    void fetchTool(name);
   }
 
-  // Load the overview on mount so the console feels alive.
+  // Load the overview on mount so the console feels alive; the initial state
+  // already reads as active=get_overview / loading, so only the fetch runs —
+  // scheduled off the effect body so every setState lands in an async callback.
   useEffect(() => {
-    callTool("get_overview");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const id = setTimeout(() => void fetchTool("get_overview"), 0);
+    return () => clearTimeout(id);
+  }, [fetchTool]);
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
