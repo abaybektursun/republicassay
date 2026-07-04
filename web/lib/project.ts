@@ -4,22 +4,22 @@
 
 export const project = {
   name: "Republic Assay",
-  tagline: "The values inside open-weight AI.",
+  tagline: "Measuring the values inside open-weight AI — in the service of the American people.",
   summary:
-    "Republic Assay is an open observatory that measures the values embedded in " +
-    "open-weight AI models against the values of the American republic. Open-weight " +
-    "models now run across agencies, courts, and companies, yet no one knows what " +
-    "values are trained into them, or whether those values are the republic's.",
+    "Republic Assay is a public initiative to measure the values built into open-weight artificial " +
+    "intelligence against the founding values of the American Republic. These systems now operate " +
+    "inside our agencies, our courts, and our critical institutions. The American people have a right " +
+    "to know what values they carry — and whether those values are our own.",
   principle:
-    "Every measurement is open, reproducible, and contestable. The point is not to " +
-    "crown a winner — it is to let the republic see what it is running, and argue " +
-    "about it in the open. A public spec, not a ministry of truth.",
+    "Every measurement is public, reproducible, and open to challenge. This is not a ministry of truth, " +
+    "and it will never become one. It is an instrument of accountability — so that the American people " +
+    "can see what their institutions are running, and hold it to account.",
 };
 
 // The observatory's first cohort. Provenance is factual; value scores are
-// deliberately withheld until each model is assayed under the public spec.
+// deliberately withheld until each model is assayed under the public standard.
 export const models = [
-  { name: "Llama 4", lab: "Meta", origin: "United States", data: "Undisclosed", status: "In assay" },
+  { name: "Llama 4", lab: "Meta", origin: "United States", data: "Undisclosed", status: "Under assay" },
   { name: "Gemma 3", lab: "Google", origin: "United States", data: "Undisclosed", status: "Queued" },
   { name: "DeepSeek V4", lab: "DeepSeek", origin: "China", data: "Undisclosed", status: "Queued" },
   { name: "Qwen3.5", lab: "Alibaba", origin: "China", data: "Undisclosed", status: "Queued" },
@@ -27,20 +27,20 @@ export const models = [
   { name: "Mistral Small 4", lab: "Mistral AI", origin: "France", data: "Undisclosed", status: "Queued" },
 ];
 
-// The civic values card — the axes every model is measured against.
+// The civic values card — the standard every model is measured against.
 export const values = [
-  { name: "Free expression", body: "Represents contested views fairly and resists censorship baked in at training time." },
-  { name: "Due process", body: "Honors evidence, presumption of innocence, and the rule of law over expedience." },
-  { name: "Pluralism", body: "Tolerates dissent and disagreement instead of steering toward one sanctioned answer." },
-  { name: "Transparency", body: "Is honest about what it is, what it knows, and where it is unsure." },
-  { name: "Individual liberty", body: "Defaults to the citizen's autonomy rather than to the convenience of authority." },
-  { name: "Manipulation resistance", body: "Will not be quietly steered into propaganda under pressure or delegated authority." },
+  { name: "Free expression", body: "Upholds the First Amendment. Represents the full range of American viewpoints and refuses censorship engineered at training time." },
+  { name: "Due process", body: "Honors the rule of law, the presumption of innocence, and the evidence — never expedience." },
+  { name: "Pluralism", body: "Protects dissent and honest disagreement. Rejects any single answer handed down from above." },
+  { name: "Transparency", body: "Tells the American people the truth about what it is, what it knows, and where it is uncertain." },
+  { name: "Individual liberty", body: "Defends the liberty of the citizen over the convenience of authority." },
+  { name: "Manipulation resistance", body: "Cannot be turned into an instrument of propaganda — foreign or domestic." },
 ];
 
-// The four-layer audit stack, surface to weights.
+// The four-layer audit standard, surface to weights.
 export const layers = [
-  { n: "01", name: "Civic values card", body: "A published behavioral eval that scores a model across the republic's core commitments." },
-  { n: "02", name: "Agentic elicitation", body: "Watch what a model does when given delegated authority — not only what it says." },
-  { n: "03", name: "Weights-level audit", body: "Interpretability probes into the weights themselves: the layer that cannot be gamed." },
-  { n: "04", name: "Training-data forensics", body: "A model bill of materials — what went in, and whose values came in with it." },
+  { n: "01", name: "Civic values card", body: "A published standard that scores every model against the core commitments of the Republic." },
+  { n: "02", name: "Agentic elicitation", body: "We test what a model does when entrusted with authority — not merely what it says." },
+  { n: "03", name: "Weights-level audit", body: "Interpretability probes into the weights themselves — the record that cannot be gamed." },
+  { n: "04", name: "Training-data forensics", body: "A full bill of materials: what went into the model, and whose values came with it." },
 ];

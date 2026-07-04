@@ -1,47 +1,14 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/button";
-import { ProbeDemo } from "@/components/probe-demo";
-import { ThreatExplorer, type Threat } from "@/components/threat-explorer";
-import { models } from "@/lib/project";
+import { VoicesExplorer } from "@/components/voices-explorer";
+import { OpennessSpectrum } from "@/components/openness-spectrum";
+import { actionPlan, champions, distinction, counter } from "@/lib/sources";
 
 export const metadata: Metadata = {
   title: "The case for open weights — Republic Assay",
   description:
-    "Closed AI is a black box. Open weights we can probe — and that is exactly why they must be probed, before they run the republic unexamined.",
+    "Why America's leaders argue for open models founded on American values — in their own words — and the strongest counter, answered.",
 };
-
-// Facts derived from the same data the observatory tracks — never invented.
-const total = models.length;
-const undisclosed = models.filter((m) => m.data === "Undisclosed").length;
-const foreign = models.filter((m) => m.origin !== "United States").length;
-
-// Each threat is tied to the republican value it erodes.
-const threats: Threat[] = [
-  {
-    n: "01",
-    value: "Free expression",
-    title: "Censorship you can't see.",
-    body: "A model can be trained to soften, skip, or slant whole subjects. If no one probes it, the bias is invisible — it just feels like the answer.",
-  },
-  {
-    n: "02",
-    value: "Self-government",
-    title: "Values shaped elsewhere.",
-    body: "Many of the world's leading open models are trained under other systems of government. Their priorities arrive pre-installed, and they don't announce themselves.",
-  },
-  {
-    n: "03",
-    value: "Security",
-    title: "Behavior that hides until it's triggered.",
-    body: "A model can pass every public test and still carry a conditioned response waiting for the right prompt. Only a weights-level probe can rule it out.",
-  },
-  {
-    n: "04",
-    value: "Accountability",
-    title: "No one can be held to account.",
-    body: "When an unexamined model shapes a benefits decision or a filing, there is no record of why. The chain of accountability a republic runs on simply breaks.",
-  },
-];
 
 export default function Transparency() {
   return (
@@ -53,116 +20,135 @@ export default function Transparency() {
       <Header />
 
       <main>
-        {/* HERO — the thesis: closed is sealed, open can be probed. */}
+        {/* HERO — the policy line, verbatim. */}
         <section className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-32">
-          <p className="eyebrow mb-8 reveal">An exposition</p>
-          <h1 className="font-display text-6xl sm:text-8xl md:text-9xl reveal">
-            Closed AI is a
-            <br />
-            black box.
-            <br />
-            <span className="text-gold-deep">Open weights,</span>
-            <br />
-            <span className="text-gold-deep">we can probe.</span>
-          </h1>
-          <p className="mt-12 max-w-xl text-lg leading-relaxed text-muted reveal">
-            Before we worry about what hides inside open models, start with the
-            alternative: closed models you can never open at all. Open weights
-            are the only ones we are even allowed to look inside. Scroll.
+          <p className="eyebrow mb-10 reveal">The written record</p>
+          <blockquote className="font-display text-5xl leading-tight sm:text-6xl md:text-7xl max-w-4xl reveal">
+            &ldquo;We need to ensure America has leading open models founded on{" "}
+            <span className="text-gold-deep">American values.</span>&rdquo;
+          </blockquote>
+          <p className="mt-10 font-mono text-sm uppercase tracking-[0.15em] text-muted reveal">
+            — {actionPlan.work}
+          </p>
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted reveal">
+            {actionPlan.note} What follows is the case for that policy, argued by
+            the leaders who set it — and the strongest objection, answered.
           </p>
         </section>
 
-        {/* PART ONE — the case for open weights (interactive). */}
+        {/* PART ONE — the champions, in their words. */}
         <section className="mx-auto max-w-5xl px-6 py-32">
-          <p className="eyebrow mb-8 reveal">Part one · The case for open weights</p>
+          <p className="eyebrow mb-8 reveal">Part one · The case, in their words</p>
           <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
-            One of these you can open.
+            Why the Nation chose open.
           </h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted reveal">
-            A closed model is delivered as a service. You send words in, you get
-            words back, and the machine itself stays on the vendor&apos;s servers —
-            unreachable, unauditable, forever. An open-weight model hands you the
-            actual parameters. That difference is everything.
+            The argument for open models is not fringe advocacy. It is made, on
+            the record, by the officials who set national policy and the
+            companies that ship the models.
           </p>
-
           <div className="mt-14 reveal">
-            <ProbeDemo />
+            <VoicesExplorer sources={champions} />
           </div>
-
-          <p className="mt-14 max-w-2xl text-lg leading-relaxed text-muted reveal">
-            Open weights don&apos;t <em>guarantee</em> transparency. They make it
-            possible — and that possibility is exactly what a closed model
-            denies. It is the ground everything else stands on.
-          </p>
         </section>
 
-        {/* PART TWO — the catch: the opening goes unused. */}
+        {/* PART TWO — Lambert's distinction (interactive spectrum). */}
         <section className="border-y border-line bg-white/40">
           <div className="mx-auto max-w-5xl px-6 py-32">
-            <p className="eyebrow mb-8 reveal">Part two · The catch</p>
-            <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
-              The door is open. No one walks through.
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted reveal">
-              Holding the weights is not the same as understanding them. Today
-              the most-run open models ship with almost everything that matters
-              still undisclosed:
+            <p className="eyebrow mb-8 reveal">
+              Part two · The distinction that guts the marketing
             </p>
-            <ul className="mt-8 max-w-2xl space-y-3 text-lg leading-relaxed text-muted reveal">
-              <li>The training data — what it learned from.</li>
-              <li>The alignment choices — what it was told to prefer.</li>
-              <li>The values — what it will quietly push.</li>
-              <li>The intent — who shaped it, and toward what.</li>
-            </ul>
+            <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
+              Open weights are not open.
+            </h2>
+            <blockquote className="mt-10 max-w-3xl font-display text-3xl leading-tight sm:text-4xl reveal">
+              &ldquo;{distinction.quote}&rdquo;
+            </blockquote>
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.15em] text-muted reveal">
+              — {distinction.name} · {distinction.work}
+            </p>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted reveal">
+              Llama and DeepSeek are open weights: you can run and tune them, but
+              you cannot rebuild or fully verify them. {distinction.note}
+            </p>
 
-            <div className="mt-16 grid gap-14 sm:grid-cols-2">
-              <Stat value={`${total - undisclosed} / ${total}`} label="disclose their training data — not one of them." />
-              <Stat value={`${foreign} / ${total}`} label="are trained outside the United States, under other systems of government." />
+            <div className="mt-12 reveal">
+              <OpennessSpectrum />
             </div>
 
-            <p className="mt-16 max-w-2xl text-lg leading-relaxed text-muted reveal">
-              The ability to inspect is going unused. That is the real danger —
-              not openness, but openness left unexamined.
+            <p className="mt-12 max-w-2xl text-lg leading-relaxed text-muted reveal">
+              Lambert&apos;s warning is blunt: &ldquo;This is a world where the
+              most available models are the hardest to trust.&rdquo; His
+              answer — the American DeepSeek Project — is to make the fully-open,
+              reproducible model the American default.
             </p>
+            <a
+              href={distinction.url}
+              className="mt-6 inline-block text-sm text-gold-deep underline underline-offset-4 hover:text-ink reveal"
+            >
+              Read the source →
+            </a>
           </div>
         </section>
 
-        {/* PART THREE — the threat (dark, interactive). */}
+        {/* PART THREE — the counter, answered (dark). */}
         <section className="bg-ink text-paper">
           <div className="mx-auto max-w-5xl px-6 py-40">
             <p className="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-gold reveal">
-              Part three · The threat
+              Part three · The counter we must beat
             </p>
             <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
-              A key that nobody turns.
+              The strongest republic voice is on the closed side.
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/70 reveal">
-              Put an open model into a court, an agency, a school — and never
-              probe it — and it behaves exactly like the black box we rejected.
-              Only now it is making decisions. Explore what goes unseen:
-            </p>
 
-            <div className="mt-16 reveal">
-              <ThreatExplorer threats={threats} />
+            <div className="mt-12 max-w-3xl reveal">
+              <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-gold">
+                Position
+              </p>
+              <p className="text-2xl leading-snug text-paper/90">{counter.paraphrase}</p>
+              <p className="mt-6 font-mono text-xs uppercase tracking-[0.15em] text-paper/40">
+                {counter.name} · {counter.work}
+              </p>
             </div>
-
-            <p className="mt-32 max-w-3xl font-display text-4xl sm:text-6xl reveal">
-              A republic runs on institutions its citizens can see into. An
-              unprobed model, placed inside them, breaks that chain — quietly.
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/70 reveal">
+              {counter.note}
             </p>
+
+            <p className="mt-20 max-w-3xl font-display text-3xl sm:text-5xl reveal">
+              Karp is right that technology must serve the Republic. The record
+              above shows why it must be <span className="text-gold">open</span> to
+              do it.
+            </p>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/70 reveal">
+              A republic governs by the oversight of the governed. A closed model
+              placed inside a public institution cannot be inspected by the
+              people it rules — and, as Zuckerberg warns, it concentrates the
+              substrate in &ldquo;a small number of big companies plus our
+              geopolitical adversaries.&rdquo; As Lambert shows, it cannot even be
+              reproduced or verified. The Nation&apos;s own policy does not
+              conclude for the black box. It concludes for leading open models
+              founded on American values.
+            </p>
+            <a
+              href={counter.url}
+              className="mt-8 inline-block text-sm text-gold underline underline-offset-4 hover:text-paper reveal"
+            >
+              Read the counter →
+            </a>
           </div>
         </section>
 
-        {/* PART FOUR — the remedy. */}
+        {/* PART FOUR — the mandate. */}
         <section className="mx-auto max-w-5xl px-6 py-40">
-          <p className="eyebrow mb-8 reveal">Part four · The remedy</p>
+          <p className="eyebrow mb-8 reveal">Part four · The standard the record demands</p>
           <h2 className="font-display text-5xl sm:text-7xl max-w-3xl reveal">
-            So turn the key.
+            Open, and proven so.
           </h2>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted reveal">
-            The fix is not to ban open models — it is to use the opening they
-            give us. Probe them in daylight, publish what they value, and let
-            anyone check the work. That is what Republic Assay is for.
+            The leaders agree on the goal: American open models, founded on
+            American values. Republic Assay is the instrument that holds them to
+            it — measuring each model against that standard, in public, so the
+            claim can be checked.
           </p>
           <div className="mt-12 flex flex-wrap gap-4 reveal">
             <Button href="/#observatory">See the observatory</Button>
@@ -175,15 +161,6 @@ export default function Transparency() {
 
       <Footer />
     </>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="reveal">
-      <div className="font-display text-7xl sm:text-8xl text-gold-deep">{value}</div>
-      <p className="mt-4 max-w-sm leading-relaxed text-muted">{label}</p>
-    </div>
   );
 }
 
@@ -209,7 +186,7 @@ function Footer() {
         <a href="/" className="font-display text-lg text-ink">
           Republic Assay
         </a>
-        <span>An open observatory for the values inside AI.</span>
+        <span>A public initiative in the service of the American Republic.</span>
       </div>
     </footer>
   );

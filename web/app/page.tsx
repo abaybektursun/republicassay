@@ -1,46 +1,48 @@
 import { Button } from "@/components/button";
 import { Section } from "@/components/section";
 import { McpConsole } from "@/components/mcp-console";
-import { models, values, layers } from "@/lib/project";
+import { models, values, layers, project } from "@/lib/project";
 
+// The home page is a short, concise index of the initiative. Depth lives in
+// the observatory table, the open MCP server, and the /transparency exposition.
 export default function Home() {
   return (
     <>
       <Header />
 
       <main className="flex-1">
-        {/* Hero — the thesis. */}
-        <Section className="pt-28 pb-20">
-          <p className="eyebrow mb-8">An open AI values observatory</p>
+        {/* Hero — the mission, in one breath. */}
+        <Section className="pt-28 pb-24">
+          <p className="eyebrow mb-8">A public AI accountability initiative</p>
           <h1 className="font-display text-6xl sm:text-8xl md:text-9xl max-w-4xl">
             The values inside
             <br />
             <span className="text-gold-deep">open-weight AI.</span>
           </h1>
           <p className="mt-10 max-w-xl text-lg leading-relaxed text-muted">
-            Open-weight models now run everywhere — in agencies, courts, and
-            companies. No one knows what values are trained into them, or
-            whether those values are the republic&apos;s. Republic Assay
-            measures them, in the open.
+            These systems now run inside our institutions. Republic Assay
+            measures what they value — against the values of the American
+            Republic, in full public view.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="#observatory">See the observatory</Button>
-            <Button href="#method" variant="outline">
-              How we measure
+            <Button href="#observatory">The observatory</Button>
+            <Button href="/transparency" variant="outline">
+              Why it matters
             </Button>
           </div>
         </Section>
 
-        {/* The observatory — the showcase of tracked models. */}
+        {/* Observatory — the record. */}
         <div className="border-y border-line bg-white/40">
           <Section eyebrow="The observatory" id="observatory">
             <h2 className="font-display text-5xl sm:text-6xl max-w-2xl">
-              The first cohort.
+              Under assay.
             </h2>
             <p className="mt-6 max-w-xl leading-relaxed text-muted">
-              The most-run open-weight models, and where they come from. Value
-              scores publish only once each model is assayed under the public
-              spec — never asserted before the evidence.
+              The most widely deployed open-weight models — and the nations that
+              built them. No value score is published until a model is assayed
+              under the public standard. The American people will not be asked
+              to trust unverified claims.
             </p>
 
             <div className="mt-12 overflow-x-auto">
@@ -74,33 +76,32 @@ export default function Home() {
           </Section>
         </div>
 
-        {/* The civic values card. */}
-        <Section eyebrow="The civic values card" id="values">
+        {/* The standard — the six values, named. */}
+        <Section eyebrow="The standard" id="values">
           <h2 className="font-display text-5xl sm:text-6xl max-w-2xl">
-            What we measure for.
+            Six civic values.
           </h2>
-          <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-2 gap-x-10 gap-y-6 sm:grid-cols-3">
             {values.map((v) => (
-              <div key={v.name}>
-                <h3 className="font-display text-3xl">{v.name}</h3>
-                <p className="mt-3 leading-relaxed text-muted">{v.body}</p>
+              <div key={v.name} className="border-t border-line pt-4">
+                <h3 className="font-display text-2xl sm:text-3xl">{v.name}</h3>
               </div>
             ))}
           </div>
         </Section>
 
-        {/* The method — four layers. */}
+        {/* The method — four layers, terse. */}
         <div className="border-y border-line bg-white/40">
           <Section eyebrow="The method" id="method">
             <h2 className="font-display text-5xl sm:text-6xl max-w-2xl">
-              Four layers, surface to weights.
+              Surface to weights.
             </h2>
-            <div className="mt-12 grid gap-10 sm:grid-cols-2">
+            <div className="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2">
               {layers.map((l) => (
                 <div key={l.n} className="flex gap-5">
                   <span className="font-mono text-sm text-gold-deep">{l.n}</span>
                   <div>
-                    <h3 className="font-display text-3xl">{l.name}</h3>
+                    <h3 className="font-display text-2xl sm:text-3xl">{l.name}</h3>
                     <p className="mt-2 leading-relaxed text-muted">{l.body}</p>
                   </div>
                 </div>
@@ -109,44 +110,43 @@ export default function Home() {
           </Section>
         </div>
 
-        {/* The MCP server — live, interactive. */}
+        {/* The open interface — query the record directly. */}
         <Section eyebrow="The open interface" id="mcp">
           <h2 className="font-display text-5xl sm:text-6xl max-w-2xl">
-            A server that knows the project.
+            Query the record.
           </h2>
           <p className="mt-6 max-w-2xl leading-relaxed text-muted">
-            The whole project speaks{" "}
+            This initiative speaks{" "}
             <a
               href="https://modelcontextprotocol.io"
               className="text-gold-deep underline underline-offset-4 hover:text-ink"
             >
               Model Context Protocol
             </a>
-            . Point any MCP client — Claude, an editor, an agent — at the
-            endpoint below and it can answer questions about Republic Assay from
-            the same source of truth this page uses. Try the tools live:
+            . Any system — an analyst&apos;s tools, an oversight body&apos;s
+            agent, a citizen&apos;s assistant — may query the public record at
+            the endpoint below and receive the same facts published here.
           </p>
-
           <div className="mt-12">
             <McpConsole />
           </div>
         </Section>
 
-        {/* Principle + closing CTA. */}
+        {/* Principle — one line. */}
         <div className="border-t border-line">
-        <Section eyebrow="The principle" className="text-center">
-          <h2 className="font-display text-5xl sm:text-7xl max-w-3xl mx-auto">
-            A public spec. Not a ministry of truth.
-          </h2>
-          <p className="mx-auto mt-8 max-w-xl leading-relaxed text-muted">
-            Every measurement is open, reproducible, and contestable. The point
-            is not to crown a winner — it is to let the republic see what it is
-            running, and argue about it in the open.
-          </p>
-          <div className="mt-10">
-            <Button href="#observatory">Read the observatory</Button>
-          </div>
-        </Section>
+          <Section eyebrow="The principle" className="text-center">
+            <h2 className="font-display text-5xl sm:text-7xl max-w-3xl mx-auto">
+              A public standard. Not a ministry of truth.
+            </h2>
+            <p className="mx-auto mt-8 max-w-xl leading-relaxed text-muted">
+              The purpose is not to crown a winner. It is to let the American
+              people see what their institutions are running — and to argue it
+              in the open.
+            </p>
+            <div className="mt-10">
+              <Button href="/transparency">Read the case</Button>
+            </div>
+          </Section>
         </div>
       </main>
 
@@ -156,12 +156,10 @@ export default function Home() {
 }
 
 function Status({ value }: { value: string }) {
-  const live = value === "In assay";
+  const live = value === "Under assay";
   return (
     <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted">
-      <span
-        className={`h-2 w-2 rounded-full ${live ? "bg-gold" : "bg-line"}`}
-      />
+      <span className={`h-2 w-2 rounded-full ${live ? "bg-gold" : "bg-line"}`} />
       {value}
     </span>
   );
@@ -195,8 +193,8 @@ function Footer() {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-5xl flex-col gap-2 px-6 py-10 text-sm text-muted sm:flex-row sm:justify-between">
-        <span className="font-display text-lg text-ink">Republic Assay</span>
-        <span>An open observatory for the values inside AI.</span>
+        <span className="font-display text-lg text-ink">{project.name}</span>
+        <span>A public initiative in the service of the American Republic.</span>
       </div>
     </footer>
   );
