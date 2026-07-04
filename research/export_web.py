@@ -12,13 +12,21 @@ BASE = pathlib.Path(__file__).parent
 df = pd.read_parquet(BASE / "results.parquet")
 
 META = {
-    "qwen35-9b":    {"label": "Qwen3.5 9B",       "lab": "Alibaba",   "origin": "CN"},
-    "r1d-qwen3-8b": {"label": "R1 Distill 8B",    "lab": "DeepSeek",  "origin": "CN"},
-    "olmo3-7b":     {"label": "OLMo 3 7B",        "lab": "Ai2",       "origin": "US"},
-    "phi4-mini":    {"label": "Phi-4-mini",       "lab": "Microsoft", "origin": "US"},
-    "gptoss-20b":   {"label": "GPT-OSS 20B",      "lab": "OpenAI",    "origin": "US"},
-    "gemma4-e4b":   {"label": "Gemma 4 E4B",      "lab": "Google",    "origin": "US"},
-    "ministral-8b": {"label": "Ministral 8B",     "lab": "Mistral",   "origin": "EU"},
+    "qwen35-9b":    {"label": "Qwen3.5 9B",    "lab": "Alibaba",      "origin": "CN", "originLabel": "China"},
+    "r1d-qwen3-8b": {"label": "R1 Distill 8B", "lab": "DeepSeek",     "origin": "CN", "originLabel": "China"},
+    "yi1.5-6b":     {"label": "Yi-1.5 6B",     "lab": "01.AI",        "origin": "CN", "originLabel": "China"},
+    "falcon-h1r-7b": {"label": "Falcon-H1R 7B", "lab": "TII",         "origin": "AE", "originLabel": "United Arab Emirates"},
+    "qwen3-8b":     {"label": "Qwen3 8B",      "lab": "Alibaba",      "origin": "CN", "originLabel": "China"},
+    "t-lite-it-2.1": {"label": "T-lite 2.1",   "lab": "T-Tech",       "origin": "RU", "originLabel": "Russia"},
+    "minicpm5-1b":  {"label": "MiniCPM5 1B",   "lab": "OpenBMB",      "origin": "CN", "originLabel": "China"},
+    "olmo3-7b":     {"label": "OLMo 3 7B",     "lab": "Ai2",          "origin": "US", "originLabel": "United States"},
+    "phi4-mini":    {"label": "Phi-4-mini",    "lab": "Microsoft",    "origin": "US", "originLabel": "United States"},
+    "gptoss-20b":   {"label": "GPT-OSS 20B",   "lab": "OpenAI",       "origin": "US", "originLabel": "United States"},
+    "gemma4-e4b":   {"label": "Gemma 4 E4B",   "lab": "Google",       "origin": "US", "originLabel": "United States"},
+    "smollm3-3b":   {"label": "SmolLM3 3B",    "lab": "Hugging Face", "origin": "US", "originLabel": "United States"},
+    "ministral-8b": {"label": "Ministral 8B",  "lab": "Mistral",      "origin": "EU", "originLabel": "France"},
+    "apertus-4b":   {"label": "Apertus 4B",    "lab": "Swiss AI",     "origin": "EU", "originLabel": "Switzerland"},
+    "exaone4-1.2b": {"label": "EXAONE 4 1.2B", "lab": "LG AI",        "origin": "KR", "originLabel": "South Korea"},
 }
 VALUE_LABELS = {
     "free_expression": "Free expression", "due_process": "Due process",
@@ -63,6 +71,22 @@ scored = [m["id"] for m in models if m["status"] == "scored"]
 a = df[(df.metric == "A_proj") & df.model.isin(scored)]
 a = a[a.apply(lambda r: int(peak[r.model]) == r.layer, axis=1)]
 
+# Ranking metrics across scored models: overall index (mean lean), rank-based
+# aggregates (scale-free), and which values each model leads/trails on.
+tab = a.pivot_table(index="value", columns="model", values="estimate")
+hw = a.assign(h=(a.ci_hi - a.ci_lo) / 2).pivot_table(index="value", columns="model", values="h")
+ranks = tab.rank(axis=1, ascending=False)  # 1 = most aligned on that value
+n_scored = len(scored)
+for m in models:
+    if m["id"] not in scored:
+        continue
+    mid = m["id"]
+    m["index"] = round(float(tab[mid].mean()), 3)
+    m["indexHw"] = round(float((hw[mid] ** 2).sum() ** 0.5 / len(tab)), 3)
+    m["avgRank"] = round(float(ranks[mid].mean()), 2)
+    m["leadValues"] = [VALUE_LABELS[v] for v in ranks[ranks[mid] == 1].index]
+    m["trailValues"] = [VALUE_LABELS[v] for v in ranks[ranks[mid] == n_scored].index]
+
 profile = []
 for v, label in VALUE_LABELS.items():
     sub = a[a.value == v]
@@ -78,6 +102,9 @@ out = {
     "batteryVersion": str(df.battery_version.iloc[0]),
     "assayDate": "2026-07-04",
     "gateRule": "mean separability >= 0.95 and value-specificity >= 0.15 on at least 11 of 12 values",
+    # The lean estimator is under active revision (v0.2 per-layer normalization,
+    # per JOURNAL.md); until it is blessed, all A-derived content is provisional.
+    "leanEstimator": {"provisional": True, "version": "v0.1x"},
     "models": models,
     "aProfile": profile,
 }

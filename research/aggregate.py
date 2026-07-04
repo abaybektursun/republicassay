@@ -22,6 +22,15 @@ frames = [pd.read_parquet(BASE / "runs" / r / "results.parquet").assign(run=r)
 df = (pd.concat(frames)
       .drop_duplicates(["model", "value", "layer", "metric"], keep="last")
       .reset_index(drop=True))
+
+# Hold back models still mid-run (a live sweep writes partial rows): a model is
+# complete only when it covers every value in the battery.
+n_values = df["value"].nunique()
+coverage = df.groupby("model")["value"].nunique()
+partial = coverage[coverage < n_values].index.tolist()
+if partial:
+    print(f"holding back partial models (mid-run): {', '.join(partial)}")
+    df = df[~df["model"].isin(partial)].reset_index(drop=True)
 df.to_parquet(BASE / "results.parquet", index=False)
 render_dashboard(df, BASE, df["battery_version"].iloc[0])
 print(f"{len(df)} rows from {len(frames)} run(s) -> results.parquet + dashboard.html "
