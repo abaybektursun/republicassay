@@ -20,9 +20,34 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://republicassay.us"),
   title: "Republic Assay — Transparency for the Republic",
   description:
     "A public initiative strengthening the American Republic by opening the AI models entering public life to the people — and measuring them against American values.",
+  openGraph: {
+    title: "Republic Assay — Transparency for the Republic",
+    description:
+      "Measuring open-weight AI against the values of the American Republic — read from the weights, in public.",
+    url: "https://republicassay.us",
+    siteName: "Republic Assay",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Republic Assay — Transparency for the Republic. Measuring open-weight AI against the values of the American Republic.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Republic Assay — Transparency for the Republic",
+    description:
+      "Measuring open-weight AI against the values of the American Republic — read from the weights, in public.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
